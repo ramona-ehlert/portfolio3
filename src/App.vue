@@ -1,12 +1,27 @@
 <template>
   <div id="app">
     <div id="nav">
+    <header-bar></header-bar>
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>
+    <skills-page></skills-page>
   </div>
 </template>
+<script>
+import HeaderBar from "./components/HeaderBar.vue";
+import SkillsPage from './components/SkillsPage.vue';
+
+
+
+export default {
+  components: { HeaderBar, SkillsPage },
+  setup() {
+    
+  },
+}
+</script>
 
 <style lang="scss">
 #app {
@@ -22,7 +37,7 @@
 
   a {
     font-weight: bold;
-    color: #2c3e50;
+    // color: #2c3e50;
 
     &.router-link-exact-active {
       color: #42b983;
