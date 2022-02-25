@@ -55,7 +55,7 @@ return {
 
 <style lang="scss">
 header {
-    background: #7A0BC0;
+    background: rgb(122, 11, 192, 70);
     position: fixed;
     right: 0px;
     top: 0px;
@@ -66,7 +66,7 @@ header {
   }
 @media screen and (min-width: 700px) {
   header {
-    background: #7A0BC0;
+    background: rgb(122, 11, 192, .70);
     position: fixed;
     right: 0px;
     top: 0px;
