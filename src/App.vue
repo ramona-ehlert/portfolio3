@@ -5,7 +5,8 @@
      <header-bar></header-bar>
       
     </div>
-    <router-view/>
+    <router-view></router-view>
+    <!-- <router-view/> -->
    
     
   </div>

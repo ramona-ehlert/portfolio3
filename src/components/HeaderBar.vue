@@ -13,13 +13,13 @@
         <nav>
           
 
-            <a href="#">Welcome</a>
+            <a href="/#">Welcome</a>
      
-            <a href="#projects-page">Projects</a>
+            <a href="/#projects-page">Projects</a>
 
-            <a href="#skills-page">My Skills</a>
+            <a href="/#skills-page">My Skills</a>
       
-            <a href="#contact-page">Contact</a>
+            <a href="/#contact-page">Contact</a>
           
           <div class="logoImg">
             

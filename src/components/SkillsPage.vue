@@ -1,5 +1,5 @@
 <template>
-  <div id="skillsPage">
+  <div id="skills-page">
     <h2>My Skills</h2>
     <div class="line"></div>
     <div id="skills" v-for="object in storeSkills" :key="object.id">
@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#skillsPage {
+#skills-page {
   display: grid;
   place-items: center;
 }
