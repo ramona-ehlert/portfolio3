@@ -43,7 +43,13 @@ export default {
 #project-cards {
   display: grid;
   place-content: center;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
+  @media screen and (min-width: 600px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media screen and (min-width: 900px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 
   div {
     display: grid;
@@ -59,9 +65,10 @@ export default {
     place-content: center;
   }
   // width: 350px;
+
   background-position: center;
   background-size: cover;
-  height: 150px;
+  height: 170px;
   position: relative;
   transition: 0.3s all ease-in;
   border-radius: 10px;
@@ -75,6 +82,8 @@ export default {
   .project-mask {
     background: rgb(39, 0, 130, 0.68);
     position: absolute;
+    top: 0;
+    right: 0;
     width: 100%;
     height: 100%;
     transition: 0.3s all ease-in;

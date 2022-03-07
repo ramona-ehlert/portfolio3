@@ -80,8 +80,11 @@ p, h4 {
 .light-purple {
   color: #9043C1;
 }
+.lpurple-back {
+  background-color: #7A0BC0;
+}
 // .light-purple-b {
-//   background-color: #7A0BC0;
+//   
 // }
 #nav {
   padding: 30px;
