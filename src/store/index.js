@@ -112,7 +112,7 @@ export default new Vuex.Store({
             logo: require("../assets/bash.png")
           },
           vscode:{
-            name: "Visual Studio Code",
+            name: "VSCode",
             logo: require("../assets/vscode.png")
           }
         }
@@ -150,7 +150,7 @@ export default new Vuex.Store({
 
       },
       {
-        name: "Tweeter",
+        name: "Tweeter: A full stack Twitter clone",
         stack: ["Vue.js", "Python", "Flask", "MariaDB", "MySQL", "DBeaver"],
         description: "A twitter clone. The first objective was to interact with a CRUD API and overcome the challenges that come with building a component based webiste. The next objective was to build my own database to interact with and a CRUD API using Python/Flask that was then integrated with the existing front end.",
         links: ["https://github.com/jacksonoviatt/tweeter",

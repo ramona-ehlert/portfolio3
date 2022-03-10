@@ -1,15 +1,9 @@
 <template>
   <div>
-    PROJECTS
-    <router-link to="/">Welcome</router-link>
-    <router-link to="/about">Project </router-link>
-    <router-link to="/tarpit">Tarpit </router-link>
-    <router-link to="/tarpit">Brickbtm </router-link>
-    <router-link to="/tarpit">Tweeter </router-link>
-    <router-link to="/pizza">Pizza </router-link>
     <div id="project-cards">
       
       <div
+      
         class="project-card"
         v-for="object in storeProjects"
         :key="object.id"
@@ -68,7 +62,7 @@ export default {
 
   background-position: center;
   background-size: cover;
-  height: 170px;
+  height: 220px;
   position: relative;
   transition: 0.3s all ease-in;
   border-radius: 10px;
