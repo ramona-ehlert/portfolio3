@@ -7,13 +7,64 @@
 
     <div class="main-mask lpurple-back"></div>
     <img class="project-image" :src="project.image" />
-    <div class="tech-stack">
-      <h2>Tech Stack</h2>
-      <div class="line"></div>
-      <div class="tech-skills">
-        <div v-for="object in project.stack" :key="object">
-          <h4>{{ object }}</h4>
-          <br />
+    <div class="text-grid">
+      <div class="tech-stack">
+        <div class="layer1"></div>
+        <div class="layer2"></div>
+        <div class="layer3">
+          <div class="padding">
+            <h2>Tech Stack</h2>
+            <div class="line"></div>
+            <div class="tech-skills">
+              <div v-for="object in project.stack" :key="object">
+                <h4>{{ object }}</h4>
+                <br />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="long"></div> -->
+      <div class="the-ask">
+        <h2>The Ask</h2>
+        <div class="line"></div>
+        <div v-html="project.ask"></div>
+      </div>
+      <div class="wireframe">
+        <img :src="project.wireframe" :alt="project.wireAlt" />
+        <div class="wire-label">
+          <div class="layer1"></div>
+          <div class="layer2"></div>
+          <div class="layer3">
+            <div class="padding">
+              <h4>Early Wireframe</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="case">
+        <img :src="project.case" :alt="project.wireframe" />
+      </div>
+      <div class="the-work">
+        <h2>Get to work</h2>
+        <div class="line"></div>
+        <div v-html="project.work"></div>
+      </div>
+
+      <div class="the-sol">
+        <h2>It's all coming together</h2>
+        <div class="line"></div>
+        <div v-html="project.ask"></div>
+      </div>
+    </div>
+    <div class="results">
+      <div class="layer1"></div>
+      <div class="layer2"></div>
+      <div class="layer3">
+        <div class="padding">
+          <h2>Results</h2>
+          <div v-html="project.results"></div>
         </div>
       </div>
     </div>
@@ -22,6 +73,7 @@
 
 <script>
 export default {
+  components: {},
   props: {
     project: Object,
   },
@@ -29,20 +81,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#projects {
-  padding-top: 450px;
+.long {
+  height: 300px;
 }
-.projectsBackground {
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #1a1a40;
+body #projects {
+  padding-top: calc(50vh + 50px);
 }
+// .projectsBackground {
+//   height: 50vh;
+// }
+.padding {
+  padding: 30px;
+  padding-bottom: 0px;
+}
+
 .project-title {
+  
   background-color: #f36f72;
   height: 60px;
   color: #fff;
@@ -50,7 +104,8 @@ export default {
   top: 120px;
   left: 0px;
   display: grid;
-  place-content: center;
+  align-content: center;
+  text-align: right;
   z-index: 3;
   font-size: 14px;
   font-weight: 900;
@@ -59,6 +114,9 @@ export default {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   max-width: 80vw;
+  @media screen and (min-width: 800px) {
+    padding:  0px 30px 0px 40px;
+  }
 }
 .project-image {
   position: absolute;
@@ -78,48 +136,113 @@ export default {
   height: 50vh;
   z-index: 2;
 }
-.tech-stack {
+
+.layer2 {
   position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  background: #f36f72;
+  border-radius: 16px;
+}
+.layer3 {
+  // padding: 30px;
+  // margin-top: -10px;
+  // position: inherit;
+  top: 20px;
+  left: 20px;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  background-color: #9043c1;
+  border-radius: 16px;
+  
+}
+
+.layer1 {
+  box-shadow: #00000044 0px 4px 10px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 16px;
+  // padding-bottom: 40px;
+  // height: 100%;
+  // top: 40px;
+  // background: #fff;
+  // position: inherit;
+  // width: 100%;
+  // margin-right: -20px;
+}
+
+.tech-stack {
   top: calc(50vh + 50px);
   right: 0px;
   left: 0px;
-  width: 80%;
+  position: absolute;
+  border-radius: 18px;
+  max-width: 80%;
   margin: auto;
   z-index: 4;
-  background-color: #1a1a40;
-  padding: 30px;
-  box-shadow: 0px 0px 32px #dea9ff;
-  border-radius: 18px;
-  max-width: 380px;
-@media screen and (max-width: 300px) {
-    padding: 20px;
-  }
-  @media screen and (min-width: 550px) {
 
-    top: calc(50vh - 50px);
-    right: 20px;
+  // @media screen and (max-width: 300px) {
+  //   padding: 20px;
+  // }
+
+  @media screen and (min-width: 550px) {
+    top: calc(50vh - 140px);
+    right: 60px;
     left: auto;
   }
-  @media screen and (min-width: 800px) {
-    
-    right: 60px;
-    
+  @media screen and (min-width: 900px) {
+    top: calc(50vh - 100px);
+    max-width: 380px;
   }
-   @media screen and (min-width: 1100px) {
-    
+  @media screen and (min-width: 1100px) {
     right: 80px;
-    
+    top: calc(50vh - 150px);
   }
   @media screen and (min-width: 1300px) {
-    
     right: 120px;
-    
   }
   text-align: left;
-  
-  h2 {
-    color: #fa58b6;
-    
+
+  // h2 {
+  //   color: #fa58b6;
+  // }
+  .line {
+    height: 2px;
+    width: 170px;
+    background-color: #f36f72;
+    margin-bottom: 20px;
+  }
+  h4 {
+    margin-right: 20px;
+    // color: #dea9ff;
+    font-size: 18px;
+    // padding-right:15px;
+  }
+}
+.text-grid {
+  display: grid;
+  place-content: center;
+  text-align: left;
+  grid-template-columns: 1fr;
+  @media screen and (min-width: 850px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.the-ask {
+  @media screen and (max-width: 850px) {
+    margin-top: 40px;
+  }
+  @media screen and (max-width: 550px) {
+    margin-top: 280px;
   }
   .line {
     height: 2px;
@@ -127,23 +250,88 @@ export default {
     background-color: #fa58b6;
     margin-bottom: 20px;
   }
-  h4 {
-      margin-right: 20px;
-    color: #dea9ff;
-    font-size: 18px;
-    // padding-right:15px;
+  // width: 50%;
+}
+//
+
+.wireframe {
+  position: relative;
+  justify-self: center;
+  display: grid;
+  justify-items: center;
+  width: 100%;
+
+  img {
+    width: 80%;
+    align-self: center;
+    margin-top: 50px;
+    max-width: 350px;
+  }
+  .layer2 {
+     top: 5px;
+    left: 5px;
+  }
+  .layer1 {
+    top: 10px;
+    left: 10px;
+  }
+  .padding {
+    padding: 15px;
+    padding-bottom: 15px;
+  }
+  .wire-label {
+    position: absolute;
+    border-radius: 18px;
+    max-width: 80%;
+    margin: auto;
+    z-index: 4;
+    bottom: 30px;
+    left: 90px;
+  }
+}
+.case {
+  display: grid;
+  place-content: center;
+
+  img {
+    width: 80%;
+    max-width: 400px;
+    padding: 30px;
+  }
+}
+.results {
+  position: absolute;
+  border-radius: 18px;
+  right: 60px;
+  margin: auto;
+  z-index: 4;
+  text-align: left;
+  max-width: 500px;
+  .padding {
+    padding-bottom: 16px;
+  }
+  @media screen and (min-width: 850px) {
+    width: 40%;
+    margin-top: -320px;
+    left: calc(50vw + 20px);
+    .padding {
+      padding-bottom: 30px;
+    }
+  }
+  @media screen and (min-width: 1100px) {
+    margin-top: -300px;
+
+    right: auto;
   }
 }
 .tech-skills {
   display: grid;
-//   place-content: left;
-  grid-template-columns: 1fr  1fr 1fr;
-  @media screen and (max-width: 300px) {
-    grid-template-columns: 1fr 1fr;
-  }
-  @media screen and (min-width: 550px) {
+  height: 100%;
 
-    grid-template-columns: 1fr  1fr 1fr 1fr;
+  //   place-content: left;
+  grid-template-columns: 1fr 1fr 1fr;
+  @media screen and (max-width: 500px) {
+    grid-template-columns: 1fr 1fr;
   }
 }
 </style>

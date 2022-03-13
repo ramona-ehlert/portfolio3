@@ -102,7 +102,7 @@ h1 {
     font-size: 48px;
   }
   @media screen and (min-width: 1200px) {
-    font-size: 56px;
+    font-size: 52px;
   }
 }
 
