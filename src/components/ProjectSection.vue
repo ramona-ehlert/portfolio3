@@ -57,6 +57,7 @@ export default {
     height: 100%;
     display: grid;
     place-content: center;
+    text-decoration: none;
   }
   // width: 350px;
 
@@ -88,6 +89,7 @@ export default {
     h3 {
       font-weight: 900;
       transition: 0.3s all ease-in;
+      text-decoration: none;
     }
     .project-mask {
       background: rgb(122, 11, 192, 0.6);

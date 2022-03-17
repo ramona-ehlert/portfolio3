@@ -128,6 +128,8 @@ export default new Vuex.Store({
         image: require("../assets/btm1.jpg"),
         page: "/brickbtm",
         case: require("../assets/btm-case.png"),
+        wireLabel: "Early Wireframe",
+        fullScreen: true,
         wireframe: require("../assets/wireframe-btm.jpg"),
         wireAlt: "",
         ask: "<p>The Brick's frequent “Buy the Matching Sofa” promotion can be difficult to explain concisely, the previous version of the tool was difficult to interact with, especially on mobile. I was tasked with designing and building a new application that would guide users through the promotion and provide greater clarity on the discounts they would receive. </p><br><p>The previous version also required a human hand to select a maximum 10 sofas to showcase in this tool, often leaving dozens of discount eligible sofas out of the customers reach</p><br><p>After brainstorming and discussing different approaches with the other developers and designers on my team. We determined that a collection page that opened a mobile friendly modal when the customer selected a sofa was the way to go.</p> ",
@@ -136,6 +138,7 @@ export default new Vuex.Store({
         results: " <p>A sleek, clear collection page that allows the customer to filter and view all the eligible furniture.</p><br><p>The signifcant and ardous process of hand selecting and entering the featured sofas has now been completely automated, reducing the workload of this frequent promotion significantly. </p>"
 
       },
+      
       {
         name: "Tar Pit Park 3D Adventure",
         stack: ["Babylon.JS", "JavaScript", "SCSS", "Python", "MariaDB", "MySQL", "DBeaver"],
@@ -145,6 +148,8 @@ export default new Vuex.Store({
         image: require("../assets/tarpit.jpg"),
         page: "/tarpit",
         case: require("../assets/btm-case.png"),
+        wireLabel: "Early Wireframe",
+        fullScreen: true,
         wireframe: require("../assets/wireframe-btm.jpg"),
         wireAlt: "",
         ask: "<p>The Brick's frequent “Buy the Matching Sofa” promotion can be difficult to explain concisely, the previous version of the tool was difficult to interact with, especially on mobile. I was tasked with designing and building a new application that would guide users through the promotion and provide greater clarity on the discounts they would receive. </p><br><p>The previous version also required a human hand to select a maximum 10 sofas to showcase in this tool, often leaving dozens of discount eligible sofas out of the customers reach</p><br><p>After brainstorming and discussing different approaches with the other developers and designers on my team. We determined that a collection page that opened a mobile friendly modal when the customer selected a sofa was the way to go.</p> ",
@@ -152,6 +157,26 @@ export default new Vuex.Store({
         
         work: "<p>Once into the code, it became clear why the previous version  of this tool had been created the way it was. A lack of consistent product grouping had created a large roadblock in the quest for dynamic sofa collection data.<p><br></p>Utilizing Shopify’s templating language, Liquid, I was able to dynamically create two JSON sets. One that held the matching collections SKU’s and one that held the individual product data (accesible by each SKU). This then allowed me to use AJAX to get only the information relevant to the user’s selection to maintain site speed.<p><br></p>Once this data was accesible I spent my time building out the rest of the app, primarily using Javascript for functionality and SCSS for styling, </p>",
         results: " <p>A sleek, clear collection page that allows the customer to filter and view all the eligible furniture.</p><br><p>The signifcant and ardous process of hand selecting and entering the featured sofas has now been completely automated, reducing the workload of this frequent promotion significantly. </p>"
+      },
+      {
+        name: "The Brick: Compare Tool",
+        stack: ["Shopify", "JavaScript", "Liquid", "SCSS", "Figma", "JQuery"],
+        // description: "Explore a scene frozen in time and get a glimpse of the greatness of the Ice Age Megafauna at Tar Pit Park. As my final project at Innotech College, my skills were put to the test as I conceptualized, designed, researched and developed an interactive educational tool. I taught myself Babylon.js, a 3D game rendering engine javascript framework that allows the user to learn in a unique environment.",
+        links: ["https://github.com/jacksonoviatt/tar_pit_park_front",
+          "https://tarpitpark.ml/", "https://github.com/jacksonoviatt/tarpitpark_back"],
+        image: require("../assets/compare.jpg"),
+        page: "/brickcom",
+        case: require("../assets/compare-case.png"),
+        wireLabel: "Mobile Experience",
+        fullScreen: true,
+        fullImg: require("../assets/full-compare.jpg"),
+        wireframe: require("../assets/wireframe-compare.jpg"),
+        wireAlt: "",
+        ask: "<p>The Bricks product comparison tool needed to be rebuilt. There were some annoying bugs on desktop that became total roadblocks on mobile. Product selection and navigation to the tool was unclear and even hidden on some mobile browsers.  The compare tool page was not mobile responsive; requiring users to scroll the entire table horizontally to see the second and third products. Some fixed elements would not move with the table, misaligning the titles and making side by side comparisons confusing if not impossible. </p><br><p>Our priority was to increase user engagement by clarifying the call to action and finding solutions to the bugs that prevented some users from properly accessing the page. We also wanted to design a mobile version that allowed the user to easily compare any combination of products with ease. As well, we were asked to streamline the features data to only include relevant tags to compare.</p>",
+
+        work: "<p>btmOnce into the code, it became clear why the previous version  of this tool had been created the way it was. A lack of consistent product grouping had created a large roadblock in the quest for dynamic sofa collection data.<p><br></p>Utilizing Shopify’s templating language, Liquid, I was able to dynamically create two JSON sets. One that held the matching collections SKU’s and one that held the individual product data (accesible by each SKU). This then allowed me to use AJAX to get only the information relevant to the user’s selection to maintain site speed..<p><br></p>Once this data was accesible I spent my time building out the rest of the app, primarily using Javascript for functionality and SCSS for styling, </p>",
+        results: " <p>A sleek, clear collection page that allows the customer to filter and view all the eligible furniture.</p><br><p>The signifcant and ardous process of hand selecting and entering the featured sofas has now been completely automated, reducing the workload of this frequent promotion significantly. </p>"
+
       },
       {
         name: "Pizza By Any Other Name",
@@ -162,6 +187,8 @@ export default new Vuex.Store({
         image: require("../assets/pizza1.png"),
         page: "/pizza",
         case: require("../assets/btm-case.png"),
+        wireLabel: "Early Wireframe",
+        fullScreen: true,
         wireframe: require("../assets/wireframe-btm.jpg"),
         wireAlt: "A low fidelity wireframe of the buy the matching sofa tool",
         ask: "<p>The Brick's frequent “Buy the Matching Sofa” promotion can be difficult to explain concisely, the previous version of the tool was difficult to interact with, especially on mobile. I was tasked with designing and building a new application that would guide users through the promotion and provide greater clarity on the discounts they would receive. </p><br><p>The previous version also required a human hand to select a maximum 10 sofas to showcase in this tool, often leaving dozens of discount eligible sofas out of the customers reach</p><br><p>After brainstorming and discussing different approaches with the other developers and designers on my team. We determined that a collection page that opened a mobile friendly modal when the customer selected a sofa was the way to go.</p> ",
@@ -180,6 +207,8 @@ export default new Vuex.Store({
         image: require("../assets/tweeter1.png"),
         page: "/tweeter",
         case: require("../assets/btm-case.png"),
+        wireLabel: "Early Wireframe",
+        fullScreen: true,
         wireframe: require("../assets/wireframe-btm.jpg"),
         wireAlt: "",
         ask: "<p>The Brick's frequent “Buy the Matching Sofa” promotion can be difficult to explain concisely, the previous version of the tool was difficult to interact with, especially on mobile. I was tasked with designing and building a new application that would guide users through the promotion and provide greater clarity on the discounts they would receive. </p><br><p>The previous version also required a human hand to select a maximum 10 sofas to showcase in this tool, often leaving dozens of discount eligible sofas out of the customers reach</p><br><p>After brainstorming and discussing different approaches with the other developers and designers on my team. We determined that a collection page that opened a mobile friendly modal when the customer selected a sofa was the way to go.</p> ",

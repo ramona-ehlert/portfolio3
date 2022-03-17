@@ -30,6 +30,11 @@ const routes = [
     component: () => import( '../views/Brickbtm.vue')
   },
   {
+    path: '/brickcom',
+    name: 'Brickcom',
+    component: () => import( '../views/Brickcom.vue')
+  },
+  {
     path: '/tarpit',
     name: 'Tarpit',
     component: () => import( '../views/Tarpit.vue')

@@ -1,5 +1,5 @@
 <template>
-  <div class="brickbtm">
+  <div class="brickcom">
       BRIck
       
     <project-page :project="storeProject"></project-page>
@@ -18,7 +18,7 @@
 import ProjectPage from '../components/ProjectPage.vue';
 import ProjectSection from '../components/ProjectSection.vue';
 export default {
-  name: 'Brickbtm',
+  name: 'Brickcom',
 //   components: {
 //     ProjectSection,
 //     SkillsPage ,
@@ -32,7 +32,7 @@ export default {
   },
   computed: {
      storeProject() {
-      return this.$store.state.projects[0];
+      return this.$store.state.projects[2];
     },
   },
 }

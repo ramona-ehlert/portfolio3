@@ -3,35 +3,56 @@
     <nav id="open-menu" @click="openMenu()">
       <h3>Menu</h3>
     </nav>
-
+    <div id="nav-mask" @click="closeMenu()"></div>
     <header id="navBox">
-        <section id="xBars" @click="closeMenu()">
-          <div id="barOne"></div>
-          <div id="barTwo"></div>
-        </section>
-        <nav>
-          <div class="nav-tab">
-            <a href="/#">Welcome</a>
+      <section id="xBars" @click="closeMenu()">
+        <svg
+          width="142"
+          height="143"
+          viewBox="0 0 142 143"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            x="32.4626"
+            y="103.673"
+            width="100"
+            height="9"
+            rx="4.5"
+            transform="rotate(-45 32.4626 103.673)"
+            fill="white"
+          />
+          <rect
+            x="103.173"
+            y="110.037"
+            width="100"
+            height="9"
+            rx="4.5"
+            transform="rotate(-135 103.173 110.037)"
+            fill="white"
+          />
+        </svg>
+      </section>
+      <nav>
+        <div class="nav-tab">
+          <a @click="closeMenu()" href="/#">Welcome</a>
+        </div>
+        <div class="nav-tab">
+          <a href="/#project-section" @click="closeMenu()">Projects</a>
+          <div v-for="item in storeProjects" :key="item.id">
+            <a :href="item.page" class="small-link"> {{ item.name }}</a>
           </div>
-          <div class="nav-tab">
-            <a href="/#projects-page">Projects</a>
-            <div v-for="item in storeProjects" :key="item.id">
-              <a :href="item.page" class="small-link">
-              {{ item.name }}</a>
-            </div>
-            <br> 
-            
-          </div>
-          <div class="nav-tab">
-            <a href="/#skills-page">My Skills</a>
-          </div>
-          <div class="nav-tab">
-            <a href="/#contact-page">Contact</a>
-          </div>
+       
+        </div>
+        <div class="nav-tab">
+          <a href="/#skills-page" @click="closeMenu()">My Skills</a>
+        </div>
+        <div class="nav-tab">
+          <a href="/#contact-page" @click="closeMenu()">Contact</a>
+        </div>
 
-          <div class="logoImg"></div>
-        </nav>
-      
+        <div class="logoImg"></div>
+      </nav>
     </header>
   </div>
 </template>
@@ -45,8 +66,13 @@ export default {
   },
   methods: {
     openMenu() {
-      console.log("hello")
+      console.log("hello");
       document.getElementById("navBox").style.left = "0px";
+      document.getElementById("nav-mask").style.display = "block";
+      setTimeout(function () {
+        document.getElementById("nav-mask").style.opacity = 1;
+      }, 100);
+
       this.isMenuOpen = true;
     },
     faFaBars() {
@@ -54,9 +80,10 @@ export default {
     },
     closeMenu() {
       document.getElementById("navBox").style.left = "-100vw";
-     
-  
-     
+      document.getElementById("nav-mask").style.opacity = 0;
+      setTimeout(function () {
+        document.getElementById("nav-mask").style.display = "none";
+      }, 400);
       setTimeout(this.faFaBars, 400);
     },
   },
@@ -74,40 +101,57 @@ export default {
   width: 90px;
   height: 30px;
   position: fixed;
-  top: 30px;
-  right: 30px;
-  z-index: 10;
+  top: 0px;
+  right: 00px;
+  z-index: 9;
   display: grid;
-  border-radius: 8px;
-  box-shadow: #ffffff55 0px 0px 10px;
+  // border-radius: 8px;
+  // box-shadow: #ffffff33 3px 0px 10px;
+  transition: 0.2s all ease-in;
   // place-content: center;
-  
-    h3 {
-      margin-top: 2px;
-    text-shadow: #00000044 0px 0px 10px;
-    }
-  
+  &:active {
+    box-shadow: inset #ffffff33 0px 0px 4px;
+  }
+
+  h3 {
+    margin-top: 2px;
+  }
+}
+#nav-mask {
+  transition: ease-in 0.4s all;
+  opacity: 0;
+  display: none;
+  top: 0;
+  position: fixed;
+  background: #000000aa;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  right: 0;
+  z-index: 10;
 }
 
 header {
-  background: rgb(122, 11, 192, 0.95);
+  background: #9043c1fa;
   position: fixed;
   top: 0px;
-  left: 0px;
   display: grid;
   height: 100vh;
-  z-index: 5;
+  z-index: 11;
   width: 80%;
-  transition: .8s ease-in all;
-// #navBox {
+  transition: 0.6s ease-in-out all;
+  // #navBox {
   // position: absolute;
   left: -100vw;
-// }
+  @media screen and (min-width: 700px) {
+    width: 60%;
+  }
+  // }
   nav {
     display: grid;
     position: absolute;
     left: 10%;
-margin-top: 50px;
+    margin-top: 50px;
     text-align: left;
     // @media screen and (min-width:550px) {
     //     left: 50px;
@@ -115,67 +159,53 @@ margin-top: 50px;
     // @media screen and (min-width:800px) {
     //     left: 80px;
     // }
-    @media screen and (min-width:1000px) {
-        left: 15%;
-    }
     a {
-      
       color: #fff;
       text-decoration: none;
       font-weight: 800;
       font-size: 24px;
       text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.25);
     }
-    
+
+    @media screen and (min-width: 1000px) {
+      left: 15%;
+      top: 5%;
+      a {
+        font-size: 32px;
+      }
+    }
   }
   .nav-tab {
-    margin-top: 30px;
-   
+    margin-top: 20px;
+    div {
+      margin: 10px 10px;
+    }
   }
 }
-.small-link {
-      font-size: 16px;
-      // position: absolute;
-      // top: 0;
-    }
-#xBars {
-  background: red;
-position: absolute;
-right: 30px;
-top: 20px;
-height: 40px;
-width: 40px;
-}
-// @media screen and (min-width: 700px) {
-//   header {
-//     background: rgb(122, 11, 192, .70);
-//     position: fixed;
-//     right: 0px;
-//     top: 0px;
-//     display: grid;
-//     height: 80px;
-//     z-index: 5;
-//     width: 100%;
-//   }
-//   nav {
-//     position: fixed;
-//     right: 0px;
-//     top: 0px;
-//     height: 80px;
-//     display: grid;
-//     padding: 10px;
-//     place-items: center;
-//     grid-template-columns: 150px 150px 150px 150px 80px;
-//     div {
-//       right: 0px;
-//     }
-//   }
 
-//     a {
-//       text-decoration: none;
-//       color: #ffffff;
-//       text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
-//       font-weight: 500;
-//     }
-// }
+.small-link {
+  font-size: 16px;
+  margin: 40px 0;
+
+  @media screen and (min-width: 1000px) {
+    font-size: 24px;
+  }
+}
+#xBars {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  height: 40px;
+  width: 40px;
+  @media screen and (min-width: 700px) {
+    right: 20px;
+  }
+  svg {
+    height: 40px;
+    width: 40px;
+  }
+  &:active {
+    box-shadow: inset #ffffff33 0px 0px 4px;
+  }
+}
 </style>

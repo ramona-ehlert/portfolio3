@@ -3,11 +3,24 @@
     <div class="home-grid">
       <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
       <welcome-message></welcome-message>
-      <div class="projects-container">
+      <div class="projects-container" id="project-section">
         <project-section></project-section>
       </div>
-
-      <skills-page></skills-page>
+      <img
+        class="orange"
+        src="../assets/orange-box.svg"
+        alt=""
+        style="
+          position: absolute;
+          left: 10vw;
+          width: 80vw;
+          margin-top: 200px;
+          z-index: 0;
+        "
+      />
+      <div style="position: relative; z-index: 3">
+        <skills-page></skills-page>
+      </div>
     </div>
   </div>
 </template>

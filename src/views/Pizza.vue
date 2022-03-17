@@ -22,7 +22,7 @@ export default {
   },
   computed: {
      storeProject() {
-      return this.$store.state.projects[2];
+      return this.$store.state.projects[3];
     },
   },
 //   components: {

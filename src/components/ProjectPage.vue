@@ -26,7 +26,7 @@
       </div>
 
       <!-- <div class="long"></div> -->
-      <div class="the-ask">
+      <div class="the-ask text-box">
         <h2>The Ask</h2>
         <div class="line"></div>
         <div v-html="project.ask"></div>
@@ -38,7 +38,7 @@
           <div class="layer2"></div>
           <div class="layer3">
             <div class="padding">
-              <h4>Early Wireframe</h4>
+              <h4>{{ project.wireLabel }}</h4>
             </div>
           </div>
         </div>
@@ -46,27 +46,33 @@
       <div class="case">
         <img :src="project.case" :alt="project.wireframe" />
       </div>
-      <div class="the-work">
+      <div class="the-work text-box">
         <h2>Get to work</h2>
         <div class="line"></div>
         <div v-html="project.work"></div>
       </div>
 
-      <div class="the-sol">
+      <div class="the-sol text-box">
         <h2>It's all coming together</h2>
         <div class="line"></div>
         <div v-html="project.ask"></div>
       </div>
-    </div>
-    <div class="results">
-      <div class="layer1"></div>
-      <div class="layer2"></div>
-      <div class="layer3">
-        <div class="padding">
-          <h2>Results</h2>
-          <div v-html="project.results"></div>
+
+      <div class="results">
+        <div class="layer1"></div>
+        <div class="layer2"></div>
+        <div class="layer3">
+          <div class="padding">
+            <h2>Results</h2>
+            <div class="line"></div>
+            <div v-html="project.results"></div>
+          </div>
         </div>
       </div>
+    </div>
+    <div v-if="project.fullImg" class="fullImgContainer">
+      <div class="fullMask"></div>
+      <img :src="project.fullImg" alt="" class="fullImg" />
     </div>
   </div>
 </template>
@@ -76,6 +82,28 @@ export default {
   components: {},
   props: {
     project: Object,
+  },
+  
+  computed: {
+    name() {
+      return this.data 
+    }
+  },
+  methods: {
+    openFullImg() {
+       
+      document.querySelector(".fullImgContainer").style.display = "block";
+      setTimeout(function () {
+        document.querySelector(".fullImgContainer").style.opacity = 1;
+      }, 100);
+
+    },
+    closeFullImg(){
+      document.querySelector(".fullImgContainer").style.opacity = 0;
+      setTimeout(function () {
+        document.querySelector(".fullImgContainer").style.opacity = 1;
+      }, 400);
+    }
   },
 };
 </script>
@@ -96,7 +124,6 @@ body #projects {
 }
 
 .project-title {
-  
   background-color: #f36f72;
   height: 60px;
   color: #fff;
@@ -115,8 +142,25 @@ body #projects {
   border-bottom-left-radius: 0;
   max-width: 80vw;
   @media screen and (min-width: 800px) {
-    padding:  0px 30px 0px 40px;
+    padding: 0px 30px 0px 40px;
   }
+}
+.fullImgContainer {
+
+  position: fixed;
+  background: #00000044;
+  top: 0;
+  left: 0;
+  z-index: 8;
+  width: 100vw;
+  height: 100vh;
+  img {
+    padding: 50px;
+    width: 80%;
+  }
+}
+.openFull {
+  position: fixed;
 }
 .project-image {
   position: absolute;
@@ -144,7 +188,7 @@ body #projects {
   z-index: -1;
   height: 100%;
   width: 100%;
-  background: #f36f72;
+  background: #f7999b;
   border-radius: 16px;
 }
 .layer3 {
@@ -158,7 +202,6 @@ body #projects {
   width: 100%;
   background-color: #9043c1;
   border-radius: 16px;
-  
 }
 
 .layer1 {
@@ -218,7 +261,7 @@ body #projects {
   .line {
     height: 2px;
     width: 170px;
-    background-color: #f36f72;
+    background-color: #f7999b;
     margin-bottom: 20px;
   }
   h4 {
@@ -233,8 +276,11 @@ body #projects {
   place-content: center;
   text-align: left;
   grid-template-columns: 1fr;
+  // margin-bottom: 120px;
   @media screen and (min-width: 850px) {
     grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 100px;
   }
 }
 .the-ask {
@@ -244,13 +290,16 @@ body #projects {
   @media screen and (max-width: 550px) {
     margin-top: 280px;
   }
+
+  // width: 50%;
+}
+.text-box {
   .line {
     height: 2px;
     width: 170px;
     background-color: #fa58b6;
     margin-bottom: 20px;
   }
-  // width: 50%;
 }
 //
 
@@ -258,17 +307,21 @@ body #projects {
   position: relative;
   justify-self: center;
   display: grid;
-  justify-items: center;
   width: 100%;
+  justify-content: center;
+  @media screen and (min-width: 850px) {
+    margin-left: 30%;
+  }
 
   img {
     width: 80%;
+    // height: 100%;
     align-self: center;
     margin-top: 50px;
-    max-width: 350px;
+    // max-width: 350px;
   }
   .layer2 {
-     top: 5px;
+    top: 5px;
     left: 5px;
   }
   .layer1 {
@@ -280,13 +333,15 @@ body #projects {
     padding-bottom: 15px;
   }
   .wire-label {
-    position: absolute;
+    position: relative;
     border-radius: 18px;
-    max-width: 80%;
-    margin: auto;
+    height: fit-content;
+    /* max-width: 200px; */
+    /* margin: auto; */
     z-index: 4;
     bottom: 30px;
-    left: 90px;
+    left: -20px;
+    width: fit-content;
   }
 }
 .case {
@@ -300,26 +355,33 @@ body #projects {
   }
 }
 .results {
-  position: absolute;
+  position: relative;
   border-radius: 18px;
-  right: 60px;
+  // right: 60px;
+  justify-self: center;
   margin: auto;
   z-index: 4;
   text-align: left;
   max-width: 500px;
+  .line {
+    height: 2px;
+    width: 120px;
+    background-color: #f7999b;
+    margin-bottom: 10px;
+  }
   .padding {
     padding-bottom: 16px;
   }
   @media screen and (min-width: 850px) {
-    width: 40%;
-    margin-top: -320px;
-    left: calc(50vw + 20px);
+    // width: 40%;
+    // margin-top: -320px;
+    // left: calc(50vw + 20px);
     .padding {
       padding-bottom: 30px;
     }
   }
   @media screen and (min-width: 1100px) {
-    margin-top: -300px;
+    // margin-top: -300px;
 
     right: auto;
   }

@@ -1,5 +1,6 @@
 <template>
   <div id="skills-page">
+    
     <h2 class="mySkills">My Skills</h2>
     <div class="line light-purple-back"></div>
     <div class="skills-message"></div>
@@ -42,6 +43,7 @@ export default {
   display: grid;
   place-items: center;
 }
+
 #skills {
   margin: 30px;
   width: 70%;
