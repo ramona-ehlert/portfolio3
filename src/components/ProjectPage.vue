@@ -42,6 +42,7 @@
             </div>
           </div>
         </div>
+        <div class="open-full" @click="openFullImg()">Open Full Screen</div>
       </div>
       <div class="case">
         <img :src="project.case" :alt="project.wireframe" />
@@ -71,8 +72,36 @@
       </div>
     </div>
     <div v-if="project.fullImg" class="fullImgContainer">
-      <div class="fullMask"></div>
+      <section class="xBars" @click="closeFullImg()">
+        <svg
+          width="142"
+          height="143"
+          viewBox="0 0 142 143"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            x="32.4626"
+            y="103.673"
+            width="100"
+            height="9"
+            rx="4.5"
+            transform="rotate(-45 32.4626 103.673)"
+            fill="white"
+          />
+          <rect
+            x="103.173"
+            y="110.037"
+            width="100"
+            height="9"
+            rx="4.5"
+            transform="rotate(-135 103.173 110.037)"
+            fill="white"
+          />
+        </svg>
+      </section>
       <img :src="project.fullImg" alt="" class="fullImg" />
+      <div class="fullMask" @click="closeFullImg()"></div>
     </div>
   </div>
 </template>
@@ -83,27 +112,26 @@ export default {
   props: {
     project: Object,
   },
-  
+
   computed: {
     name() {
-      return this.data 
-    }
+      return this.data;
+    },
   },
+  mounted() {},
   methods: {
     openFullImg() {
-       
       document.querySelector(".fullImgContainer").style.display = "block";
       setTimeout(function () {
         document.querySelector(".fullImgContainer").style.opacity = 1;
       }, 100);
-
     },
-    closeFullImg(){
+    closeFullImg() {
       document.querySelector(".fullImgContainer").style.opacity = 0;
       setTimeout(function () {
-        document.querySelector(".fullImgContainer").style.opacity = 1;
+        document.querySelector(".fullImgContainer").style.display = "none";
       }, 400);
-    }
+    },
   },
 };
 </script>
@@ -145,22 +173,59 @@ body #projects {
     padding: 0px 30px 0px 40px;
   }
 }
-.fullImgContainer {
-
-  position: fixed;
-  background: #00000044;
-  top: 0;
-  left: 0;
-  z-index: 8;
-  width: 100vw;
-  height: 100vh;
-  img {
-    padding: 50px;
-    width: 80%;
-  }
+@media screen and (max-width: 800px) {
+.open-full,.fullImgContainer {
+  display: none!important;
 }
-.openFull {
-  position: fixed;
+}
+@media screen and (min-width: 800px) {
+  .fullImgContainer {
+    position: fixed;
+    // background: #00000044;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100vw;
+    transition: ease-in 0.4s all;
+    height: 100vh;
+    .fullMask {
+      background: #00000066;
+      transition: ease-in 0.4s all;
+      position: absolute;
+      top: 0px;
+      width: 100vw;
+      height: 100vh;
+      //   position: fixed;
+      // top: 0;
+      //   left: 0;
+    }
+    img {
+      border-radius: 80px;
+      padding: 50px;
+      width: 80%;
+      z-index: 12;
+      position: relative;
+    }
+  }
+  .xBars {
+    position: absolute;
+    right: 100px;
+    top: 50px;
+    height: 40px;
+    width: 40px;
+    z-index: 12;
+
+    svg {
+      height: 40px;
+      width: 40px;
+    }
+    &:active {
+      box-shadow: inset #ffffff33 0px 0px 4px;
+    }
+  }
+  .open-full {
+    display: block;
+  }
 }
 .project-image {
   position: absolute;
@@ -315,9 +380,12 @@ body #projects {
 
   img {
     width: 80%;
+    border-radius: 16px;
     // height: 100%;
     align-self: center;
     margin-top: 50px;
+    justify-self: center;
+
     // max-width: 350px;
   }
   .layer2 {
