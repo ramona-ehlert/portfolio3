@@ -1,5 +1,5 @@
 <template>
-  <div class="brickbtm">
+  <div class="brickbtm" style="display:grid;place-content:center;">
       BRIck
       
     <project-page :project="storeProject"></project-page>

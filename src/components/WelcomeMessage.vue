@@ -22,13 +22,42 @@
         alt="An icon with a simplistic desktop monitor, website and mobile phone"
       />
     </div>
-    <div ></div>
-      <h2 class="mywork">My Work</h2>
+    <div class="mywork">
+      <!-- <h2 >My Work</h2> -->
+      <div class="down bottom-down" @click="goDown()">
+        <div class="svg"><svg width="144" height="80" viewBox="0 0 144 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="7.77832" y="0.0979004" width="101" height="11" rx="3" transform="rotate(45 7.77832 0.0979004)" fill="#F1A168"/>
+<rect x="63.9019" y="71.4177" width="101" height="11" rx="3" transform="rotate(-45 63.9019 71.4177)" fill="#F1A168"/>
+</svg>
+</div>
+        <div class="svg"><svg width="144" height="80" viewBox="0 0 144 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="7.77832" y="0.0979004" width="101" height="11" rx="3" transform="rotate(45 7.77832 0.0979004)" fill="#F1A168"/>
+<rect x="63.9019" y="71.4177" width="101" height="11" rx="3" transform="rotate(-45 63.9019 71.4177)" fill="#F1A168"/>
+</svg>
+</div>
+        <!-- <img src="../assets/downO.svg"  alt="down arrow">
+        <img src="../assets/downS.svg"  alt="down arrow"> -->
+      </div>
+      </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  mounted () {
+    window.addEventListener("scroll", this.hideBounce);
+  },
+  methods: {
+    hideBounce() {
+      document.querySelector(".bottom-down").style = "opacity:0;animationDuration:0s;"
+    },
+    goDown(){
+      console.log(window.innerHeight)
+      window.scrollTo({top: window.innerHeight, behavior: 'smooth'})
+      this.hideBounce()
+    }
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -47,7 +76,11 @@ export default {};
     // padding-bottom: 90px;
   }
 }
-
+.down {
+  display: grid;
+  width: 100%;
+  place-content: center;
+}
 .welcome-grid {
   img {
     width: 60%;
@@ -129,35 +162,68 @@ h4 {
 }
 .mywork {
   position: absolute;
-  bottom: 40px;
+  bottom: 30px;
   right: 0px;
   width: 100%;
   text-align: center;
-  animation-name: example;
-  animation-duration: 12s;
-  animation-iteration-count: infinite;
-  
-    font-size: 28px;
-  
+    font-size: 20px;
+  color: #fa58b6;
 }
 @keyframes example {
   0% {
     color: #9043c1;
+   fill: #9043c1;
   }
   20% {
     color: #fa58b6;
+    fill: #fa58b6;
   }
   40% {
     color: #f36f72;
+    fill: #f36f72;
   }
   60% {
     color: #eb862e;
+    fill: #eb862e;
   }
   70% {
     color: #fa58b6;
+    fill: #fa58b6;
   }
   100% {
     color: #9043c1;
+    fill: #9043c1;
+  }
+}
+.bottom-down{
+  transition: 0.5s ;
+   animation-name: updown;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  margin-top: 12px;
+  .svg { 
+    svg {
+      height: 20px;
+      rect {
+        
+     animation-name: example;
+  animation-duration: 12s;
+  animation-iteration-count: infinite;
+      }
+    
+  }
+    
+  }
+}
+@keyframes updown {
+  0% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(-5px);
   }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="pizza">
+  <div class="pizza" style="display:grid;place-content:center;">
     <project-page :project="storeProject"></project-page>
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
      Other Projects

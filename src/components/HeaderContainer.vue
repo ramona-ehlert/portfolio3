@@ -42,7 +42,6 @@
           <div v-for="item in storeProjects" :key="item.id">
             <a :href="item.page" class="small-link"> {{ item.name }}</a>
           </div>
-       
         </div>
         <div class="nav-tab">
           <a href="/#skills-page" @click="closeMenu()">My Skills</a>
@@ -53,6 +52,23 @@
 
         <div class="logoImg"></div>
       </nav>
+      <div class="socials">
+        <a href="">
+          <img src="../assets/github.svg" alt="the github logo" />
+        </a>
+        <a href="">
+          <img src="../assets/resume.svg" alt="the github logo" />
+        </a>
+        <a href="">
+          <img src="../assets/email.svg" alt="the github logo" />
+        </a>
+        <a href="">
+          <img src="../assets/linkedin.svg" alt="the github logo" />
+        </a>
+        <a href="">
+          <img src="../assets/dev.svg" alt="the github logo" />
+        </a>
+      </div>
     </header>
   </div>
 </template>
@@ -105,6 +121,7 @@ export default {
   right: 00px;
   z-index: 9;
   display: grid;
+  cursor: pointer;
   // border-radius: 8px;
   // box-shadow: #ffffff33 3px 0px 10px;
   transition: 0.2s all ease-in;
@@ -164,7 +181,11 @@ header {
       text-decoration: none;
       font-weight: 800;
       font-size: 24px;
-      text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.25);
+      transition: 0.4s ease-in-out all;
+      &:hover {
+        color: #fdbce2;
+        text-shadow: 2px 3px 5px #9043c4;
+      }
     }
 
     @media screen and (min-width: 1000px) {
@@ -206,6 +227,21 @@ header {
   }
   &:active {
     box-shadow: inset #ffffff33 0px 0px 4px;
+  }
+}
+.socials {
+  display: grid;
+  place-content: center;
+  position: absolute;
+  bottom: 0px;
+  right: 30px;
+  margin-bottom: 30px;
+  img {
+    height: 40px;
+    margin-bottom: 24px;
+  }
+  @media screen and (min-width: 1000px) {
+    right: 40px;
   }
 }
 </style>

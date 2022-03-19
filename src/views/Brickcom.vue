@@ -1,5 +1,5 @@
 <template>
-  <div class="brickcom">
+  <div class="brickcom" style="display:grid;place-content:center;">
       BRIck
       
     <project-page :project="storeProject"></project-page>

@@ -3,7 +3,19 @@
     <div class="home-grid">
       <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
       <welcome-message></welcome-message>
+
       <div class="projects-container" id="project-section">
+        <h2
+          style="
+          margin-top: 40px;
+          font-size: 32px;
+            font-weight: 800;
+            color: #ac5adf;
+            text-shadow: 0px 4px 4px #000000;
+          "
+        >
+          My Work
+        </h2>
         <project-section></project-section>
       </div>
       <img

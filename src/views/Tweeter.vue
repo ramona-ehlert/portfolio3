@@ -1,5 +1,5 @@
 <template>
-  <div class="tweeter">
+  <div class="tweeter" style="display:grid;place-content:center;">
       Tweeter
     <project-page :project="storeProject"></project-page>
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->

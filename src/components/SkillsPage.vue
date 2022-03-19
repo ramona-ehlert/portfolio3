@@ -2,7 +2,7 @@
   <div id="skills-page">
     
     <h2 class="mySkills">My Skills</h2>
-    <div class="line light-purple-back"></div>
+    <div class="line"></div>
     <div class="skills-message"></div>
     <div id="skills" v-for="object in storeSkills" :key="object.id">
       <section class="skill-section">
@@ -49,7 +49,7 @@ export default {
   width: 70%;
 }
 .type-name {
-  color: #9043c1;
+  color: #fff;
 }
 
 .skillBox {
@@ -71,23 +71,23 @@ box-shadow: 0 0 0 8px #9043c1; /* All the borders by using the spread properties
  
   // display: grid;
   // place-content: center;
-  background-color: #fff;
+  background-color: #9043c1;
   .skillLine {
     width: fit-content;
     margin-left: 40px;
     .line {
     height: 2px;
     width:  120%;
-    
     margin-bottom: 20px;
     margin: auto;
+    background-color: #fa58b6
   }
   }
   
   
 }
 p, h2, h8 {
-  color: #1a1a80;
+  color: #fff;
 }
 p {
   text-align: center;

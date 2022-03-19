@@ -13,8 +13,10 @@
         <div class="layer2"></div>
         <div class="layer3">
           <div class="padding">
-            <h2>Tech Stack</h2>
-            <div class="line"></div>
+            <div class="line-box">
+              <h2>Tech Stack</h2>
+              <div class="line"></div>
+            </div>
             <div class="tech-skills">
               <div v-for="object in project.stack" :key="object">
                 <h4>{{ object }}</h4>
@@ -26,9 +28,12 @@
       </div>
 
       <!-- <div class="long"></div> -->
+
       <div class="the-ask text-box">
+        <div class="line-box">
         <h2>The Ask</h2>
         <div class="line"></div>
+        </div>
         <div v-html="project.ask"></div>
       </div>
       <div class="wireframe">
@@ -39,23 +44,30 @@
           <div class="layer3">
             <div class="padding">
               <h4>{{ project.wireLabel }}</h4>
+              <div v-if="project.fullImg" class="open-full" @click="openFullImg()">
+          Open Full Screen
+        </div>
             </div>
           </div>
         </div>
-        <div class="open-full" @click="openFullImg()">Open Full Screen</div>
+        
       </div>
       <div class="case">
         <img :src="project.case" :alt="project.wireframe" />
       </div>
       <div class="the-work text-box">
+        <div class="line-box">
         <h2>Get to work</h2>
         <div class="line"></div>
+        </div>
         <div v-html="project.work"></div>
       </div>
 
       <div class="the-sol text-box">
+        <div class="line-box">
         <h2>It's all coming together</h2>
         <div class="line"></div>
+        </div>
         <div v-html="project.ask"></div>
       </div>
 
@@ -64,8 +76,10 @@
         <div class="layer2"></div>
         <div class="layer3">
           <div class="padding">
+            <div class="line-box">
             <h2>Results</h2>
             <div class="line"></div>
+            </div>
             <div v-html="project.results"></div>
           </div>
         </div>
@@ -112,13 +126,15 @@ export default {
   props: {
     project: Object,
   },
-
+  mounted() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0;
+  },
   computed: {
     name() {
       return this.data;
     },
   },
-  mounted() {},
   methods: {
     openFullImg() {
       document.querySelector(".fullImgContainer").style.display = "block";
@@ -141,6 +157,7 @@ export default {
   height: 300px;
 }
 body #projects {
+  max-width: 1000px;
   padding-top: calc(50vh + 50px);
 }
 // .projectsBackground {
@@ -148,7 +165,7 @@ body #projects {
 // }
 .padding {
   padding: 30px;
-  padding-bottom: 0px;
+  padding-bottom: 20px;
 }
 
 .project-title {
@@ -162,24 +179,31 @@ body #projects {
   align-content: center;
   text-align: right;
   z-index: 3;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 900;
   padding: 0 20px;
   border-radius: 15px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   max-width: 80vw;
-  @media screen and (min-width: 800px) {
-    padding: 0px 30px 0px 40px;
+  @media screen and (min-width: 600px) {
+    padding: 8px 40px 8px 50px;
+    font-size: 20px;
+  }
+  @media screen and (min-width: 1000px) {
+    font-size: 24px;
+    padding: 10px 30px 10px 80px;
   }
 }
 @media screen and (max-width: 800px) {
-.open-full,.fullImgContainer {
-  display: none!important;
-}
+  .open-full,
+  .fullImgContainer {
+    display: none !important;
+  }
 }
 @media screen and (min-width: 800px) {
   .fullImgContainer {
+    display: none;
     position: fixed;
     // background: #00000044;
     top: 0;
@@ -209,12 +233,14 @@ body #projects {
   }
   .xBars {
     position: absolute;
-    right: 100px;
+    right: 40px;
     top: 50px;
     height: 40px;
     width: 40px;
-    z-index: 12;
-
+    z-index: 15;
+@media screen and (min-width:920px) {
+  right: 50px;
+}
     svg {
       height: 40px;
       width: 40px;
@@ -224,7 +250,16 @@ body #projects {
     }
   }
   .open-full {
-    display: block;
+    font-weight: 500;
+    // display: block;
+    // background: #7A0BC0aa;
+    // width: fit-content;
+    // height: fit-content;
+    padding: 5px;
+    // position: relative;
+    // bottom: 60px;
+    // left: 60%;
+    text-decoration: underline;
   }
 }
 .project-image {
@@ -307,10 +342,7 @@ body #projects {
     right: 60px;
     left: auto;
   }
-  @media screen and (min-width: 900px) {
-    top: calc(50vh - 100px);
-    max-width: 380px;
-  }
+
   @media screen and (min-width: 1100px) {
     right: 80px;
     top: calc(50vh - 150px);
@@ -330,10 +362,23 @@ body #projects {
     margin-bottom: 20px;
   }
   h4 {
-    margin-right: 20px;
-    // color: #dea9ff;
+    margin-right: 10px;
+    margin-left: 10px;
     font-size: 18px;
-    // padding-right:15px;
+    text-align: center;
+  }
+}
+
+
+.line-box {
+  width: fit-content;
+  // margin-left: 40px;
+  margin-bottom: 20px;
+  .line {
+    height: 2px;
+    width: 120%;
+    // margin-bottom: 40px;
+    margin: auto;
   }
 }
 .text-grid {
@@ -360,10 +405,7 @@ body #projects {
 }
 .text-box {
   .line {
-    height: 2px;
-    width: 170px;
     background-color: #fa58b6;
-    margin-bottom: 20px;
   }
 }
 //

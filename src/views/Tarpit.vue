@@ -1,5 +1,5 @@
 <template>
-  <div class="tarpit">
+  <div class="tarpit" style="display:grid;place-content:center;">
       Tarpit
      
       <project-page :project="storeProject"></project-page>

@@ -50,17 +50,14 @@ export default new Vuex.Store({
             name: "Python",
             logo: require("../assets/python.png")
           },
-          flask: {
-            name: "Flask",
-            logo: require("../assets/flask.png")
-          },
+        
           mysql: {
             name: "MySQL",
             logo: require("../assets/mysql.png")
           },
           dbeav: {
-            name: "DBeaver",
-            logo: require("../assets/dbeaver.png")
+            name: "Databases",
+            logo: require("../assets/db.svg")
           },
           mdb: {
             name: "MariaDB",
@@ -68,7 +65,7 @@ export default new Vuex.Store({
           },
           sql: {
             name: "SQL",
-            logo: require("../assets/SQL.png")
+            logo: require("../assets/sql.svg")
           },
           api: {
             name: "API",
@@ -105,7 +102,7 @@ export default new Vuex.Store({
           },
           linux: {
             name: "Linux",
-            logo: require("../assets/linux.jpg")
+            logo: require("../assets/linux.svg")
           },
           bash: {
             name: "Bash/CLI",
@@ -121,6 +118,7 @@ export default new Vuex.Store({
     projects: [
       {
         name: "The Brick: Buy the Matching Sofa",
+        desc: "An eccomerce tool which assists users shopping a potentially puzzling promotion",
         stack: ["Shopify", "JavaScript", "Liquid", "SCSS", "Figma", "JQuery"],
         description: "Explore a scene frozen in time and get a glimpse of the greatness of the Ice Age Megafauna at Tar Pit Park. As my final project at Innotech College, my skills were put to the test as I conceptualized, designed, researched and developed an interactive educational tool. I taught myself Babylon.js, a 3D game rendering engine javascript framework that allows the user to learn in a unique environment.",
         links: ["https://github.com/jacksonoviatt/tar_pit_park_front",
@@ -141,6 +139,7 @@ export default new Vuex.Store({
       
       {
         name: "Tar Pit Park 3D Adventure",
+        desc: "An experiment turned passion project fueled by my love for all things Pleistocene", 
         stack: ["Babylon.JS", "JavaScript", "SCSS", "Python", "MariaDB", "MySQL", "DBeaver"],
         description: "Explore a scene frozen in time and get a glimpse of the greatness of the Ice Age Megafauna at Tar Pit Park. As my final project at Innotech College, my skills were put to the test as I conceptualized, designed, researched and developed an interactive educational tool. I taught myself Babylon.js, a 3D game rendering engine javascript framework that allows the user to learn in a unique environment.",
         links: ["https://github.com/jacksonoviatt/tar_pit_park_front",
@@ -161,13 +160,14 @@ export default new Vuex.Store({
       {
         name: "The Brick: Compare Tool",
         stack: ["Shopify", "JavaScript", "Liquid", "SCSS", "Figma", "JQuery"],
+        desc: "An updated design and build which improved user engagement by over 300%",
         // description: "Explore a scene frozen in time and get a glimpse of the greatness of the Ice Age Megafauna at Tar Pit Park. As my final project at Innotech College, my skills were put to the test as I conceptualized, designed, researched and developed an interactive educational tool. I taught myself Babylon.js, a 3D game rendering engine javascript framework that allows the user to learn in a unique environment.",
         links: ["https://github.com/jacksonoviatt/tar_pit_park_front",
           "https://tarpitpark.ml/", "https://github.com/jacksonoviatt/tarpitpark_back"],
         image: require("../assets/compare.jpg"),
         page: "/brickcom",
         case: require("../assets/compare-case.png"),
-        wireLabel: "Mobile Experience",
+        wireLabel: "Mobile Experience:",
         fullScreen: true,
         fullImg: require("../assets/full-compare.jpg"),
         wireframe: require("../assets/wireframe-compare.jpg"),
@@ -180,6 +180,7 @@ export default new Vuex.Store({
       },
       {
         name: "Pizza By Any Other Name",
+        desc: "A static website for a (pretend) local pizza restaurant which flexes design and HTML/CSS skills",
         stack: ["HTML5", "CSS3", "SASS"],
         description: "A mock website for an imaginary pizza restaurant, Pizza By Any Name. This project was created for an assignment at Innotech College, the objective was to practice and showcase my pure HTML and css abilities as well as challenge me to create an interesting UI/UX without using Javascript.",
         links: ["https://github.com/jacksonoviatt/pizzabyanyothername",
@@ -199,7 +200,8 @@ export default new Vuex.Store({
 
       },
       {
-        name: "Tweeter: A full stack Twitter clone",
+        name: "Tweeter: A Twitter replica",
+        desc: "My own full stack version of the well known CRUD social media",
         stack: ["Vue.js", "Python", "Flask", "MariaDB", "MySQL", "DBeaver"],
         description: "A twitter clone. The first objective was to interact with a CRUD API and overcome the challenges that come with building a component based webiste. The next objective was to build my own database to interact with and a CRUD API using Python/Flask that was then integrated with the existing front end.",
         links: ["https://github.com/jacksonoviatt/tweeter",
