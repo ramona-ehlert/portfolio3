@@ -46,35 +46,22 @@
         <div class="nav-tab">
           <a href="/#skills-page" @click="closeMenu()">My Skills</a>
         </div>
+    
         <div class="nav-tab">
-          <a href="/#contact-page" @click="closeMenu()">Contact</a>
+          <a href="/about" @click="closeMenu()">About Me</a>
         </div>
 
         <div class="logoImg"></div>
       </nav>
-      <div class="socials">
-        <a href="">
-          <img src="../assets/github.svg" alt="the github logo" />
-        </a>
-        <a href="">
-          <img src="../assets/resume.svg" alt="the github logo" />
-        </a>
-        <a href="">
-          <img src="../assets/email.svg" alt="the github logo" />
-        </a>
-        <a href="">
-          <img src="../assets/linkedin.svg" alt="the github logo" />
-        </a>
-        <a href="">
-          <img src="../assets/dev.svg" alt="the github logo" />
-        </a>
-      </div>
+      <social-grid></social-grid>
     </header>
   </div>
 </template>
 
 <script>
+import SocialGrid from './SocialGrid.vue';
 export default {
+  components: { SocialGrid },
   data() {
     return {
       isMenuOpen: false,
@@ -117,10 +104,12 @@ export default {
   width: 90px;
   height: 30px;
   position: fixed;
+  border-bottom-left-radius: 8px;
   top: 0px;
   right: 00px;
   z-index: 9;
   display: grid;
+  place-content: center;
   cursor: pointer;
   // border-radius: 8px;
   // box-shadow: #ffffff33 3px 0px 10px;
@@ -179,7 +168,7 @@ header {
     a {
       color: #fff;
       text-decoration: none;
-      font-weight: 800;
+      font-weight: 600;
       font-size: 24px;
       transition: 0.4s ease-in-out all;
       &:hover {
@@ -202,6 +191,21 @@ header {
       margin: 10px 10px;
     }
   }
+  .socials {
+  display: grid;
+  place-content: center;
+  position: absolute;
+  bottom: 0px;
+  right: 30px;
+  margin-bottom: 30px;
+  img {
+    height: 40px;
+    margin-bottom: 24px;
+  }
+  @media screen and (min-width: 1000px) {
+    right: 40px;
+  }
+}
 }
 
 .small-link {
@@ -229,19 +233,5 @@ header {
     box-shadow: inset #ffffff33 0px 0px 4px;
   }
 }
-.socials {
-  display: grid;
-  place-content: center;
-  position: absolute;
-  bottom: 0px;
-  right: 30px;
-  margin-bottom: 30px;
-  img {
-    height: 40px;
-    margin-bottom: 24px;
-  }
-  @media screen and (min-width: 1000px) {
-    right: 40px;
-  }
-}
+
 </style>

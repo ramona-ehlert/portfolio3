@@ -7,29 +7,19 @@
       <div class="projects-container" id="project-section">
         <h2
           style="
-          margin-top: 40px;
+          margin-top: 80px;
           font-size: 32px;
-            font-weight: 800;
-            color: #ac5adf;
-            text-shadow: 0px 4px 4px #000000;
+            font-weight: 400;
+            color: #ffffff;
+            position:relative;
+            z-index:3;
           "
         >
-          My Work
+          Projects
         </h2>
+        <div style="width:140px;height: 2px; background: #ffffff; position:relative; margin:auto;"></div>
         <project-section></project-section>
       </div>
-      <img
-        class="orange"
-        src="../assets/orange-box.svg"
-        alt=""
-        style="
-          position: absolute;
-          left: 10vw;
-          width: 80vw;
-          margin-top: 200px;
-          z-index: 0;
-        "
-      />
       <div style="position: relative; z-index: 3">
         <skills-page></skills-page>
       </div>

@@ -12,9 +12,12 @@
       <h4>
         I’m a dev with an affinity for front end design and development. I
         currently reside in Edmonton Alberta, I spend my days maintaining and
-        improving The Brick's eccommerce website, a custom Shopify store which
+        improving The Brick's e-commerce website, a custom Shopify store which
         hosts hundreds of thousands of daily visitors. Here I am focused on
-        streamlining and modernizing the mobile shopping experience.
+        streamlining and modernizing the mobile shopping experience.<br />
+        <router-link to="/about"
+          ><span class="toAbout">More about me >></span></router-link
+        >
       </h4>
 
       <img
@@ -25,37 +28,85 @@
     <div class="mywork">
       <!-- <h2 >My Work</h2> -->
       <div class="down bottom-down" @click="goDown()">
-        <div class="svg"><svg width="144" height="80" viewBox="0 0 144 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="7.77832" y="0.0979004" width="101" height="11" rx="3" transform="rotate(45 7.77832 0.0979004)" fill="#F1A168"/>
-<rect x="63.9019" y="71.4177" width="101" height="11" rx="3" transform="rotate(-45 63.9019 71.4177)" fill="#F1A168"/>
-</svg>
-</div>
-        <div class="svg"><svg width="144" height="80" viewBox="0 0 144 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="7.77832" y="0.0979004" width="101" height="11" rx="3" transform="rotate(45 7.77832 0.0979004)" fill="#F1A168"/>
-<rect x="63.9019" y="71.4177" width="101" height="11" rx="3" transform="rotate(-45 63.9019 71.4177)" fill="#F1A168"/>
-</svg>
-</div>
+        <div class="svg">
+          <svg
+            width="144"
+            height="80"
+            viewBox="0 0 144 80"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              x="7.77832"
+              y="0.0979004"
+              width="101"
+              height="11"
+              rx="3"
+              transform="rotate(45 7.77832 0.0979004)"
+              fill="#F1A168"
+            />
+            <rect
+              x="63.9019"
+              y="71.4177"
+              width="101"
+              height="11"
+              rx="3"
+              transform="rotate(-45 63.9019 71.4177)"
+              fill="#F1A168"
+            />
+          </svg>
+        </div>
+        <div class="svg">
+          <svg
+            width="144"
+            height="80"
+            viewBox="0 0 144 80"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              x="7.77832"
+              y="0.0979004"
+              width="101"
+              height="11"
+              rx="3"
+              transform="rotate(45 7.77832 0.0979004)"
+              fill="#F1A168"
+            />
+            <rect
+              x="63.9019"
+              y="71.4177"
+              width="101"
+              height="11"
+              rx="3"
+              transform="rotate(-45 63.9019 71.4177)"
+              fill="#F1A168"
+            />
+          </svg>
+        </div>
         <!-- <img src="../assets/downO.svg"  alt="down arrow">
         <img src="../assets/downS.svg"  alt="down arrow"> -->
       </div>
-      </div>
+    </div>
+    <div class="blobby"><div class="colorBlob"></div></div>
   </div>
 </template>
 
 <script>
 export default {
-  mounted () {
+  mounted() {
     window.addEventListener("scroll", this.hideBounce);
   },
   methods: {
     hideBounce() {
-      document.querySelector(".bottom-down").style = "opacity:0;animationDuration:0s;"
+      document.querySelector(".bottom-down").style =
+        "opacity:0;animationDuration:0s;";
     },
-    goDown(){
-      console.log(window.innerHeight)
-      window.scrollTo({top: window.innerHeight, behavior: 'smooth'})
-      this.hideBounce()
-    }
+    goDown() {
+      console.log(window.innerHeight);
+      window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+      this.hideBounce();
+    },
   },
 };
 </script>
@@ -117,7 +168,7 @@ export default {
 h1 {
   font-size: 26px;
   text-align: left;
-  font-weight: 800;
+  font-weight: 700;
 
   color: #ac5adf;
   text-shadow: 0px 4px 4px #000000;
@@ -166,15 +217,70 @@ h4 {
   right: 0px;
   width: 100%;
   text-align: center;
-    font-size: 20px;
+  font-size: 20px;
   color: #fa58b6;
+}
+a {
+  text-decoration: none;
+}
+.toAbout {
+  animation-name: example;
+  animation-duration: 24s;
+  animation-iteration-count: infinite;
+}
+.blobby {
+  height: 240px;
+  width: 60%;
+  top: calc(100vh + 0px);
+  left: 20%;
+  z-index: 0;
+  margin: auto;
+  border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+  transform: rotate(180deg);
+
+  position: absolute;
+  animation-name: morph;
+    animation-duration: 14s;
+    animation-iteration-count: infinite;
+  @media screen and (min-width: 650px) {
+    width: 40%;
+    left: 30%;
+    
+  }
+   @media screen and (min-width: 1000px) {
+    height: 400px;
+  }
+}
+
+@keyframes morph {
+  0%,
+  100% {
+    border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+  }
+  34% {
+    border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+  }
+  67% {
+    border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+  }
+}
+.colorBlob {
+  
+  animation-name: blobColor;
+  animation-duration: 24s;
+  animation-iteration-count: infinite;
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
 }
 @keyframes example {
   0% {
+
     color: #9043c1;
-   fill: #9043c1;
+    fill: #9043c1;
   }
   20% {
+
     color: #fa58b6;
     fill: #fa58b6;
   }
@@ -195,24 +301,42 @@ h4 {
     fill: #9043c1;
   }
 }
-.bottom-down{
-  transition: 0.5s ;
-   animation-name: updown;
+@keyframes blobColor {
+   0% {
+    background-color: #9043c1;
+  }
+  20% {
+    background-color: #fa58b6;
+  }
+  40% {
+    background-color: #f36f72;
+  }
+  60% {
+    background-color: #eb862e;
+  }
+  70% {
+    background-color: #fa58b6;
+  }
+  100% {
+    background-color: #9043c1;
+  }
+}
+
+.bottom-down {
+  transition: 0.5s;
+  animation-name: updown;
   animation-duration: 4s;
   animation-iteration-count: infinite;
   margin-top: 12px;
-  .svg { 
+  .svg {
     svg {
       height: 20px;
       rect {
-        
-     animation-name: example;
-  animation-duration: 12s;
-  animation-iteration-count: infinite;
+        animation-name: example;
+        animation-duration: 12s;
+        animation-iteration-count: infinite;
       }
-    
-  }
-    
+    }
   }
 }
 @keyframes updown {
@@ -224,6 +348,18 @@ h4 {
   }
   100% {
     transform: translateY(-5px);
+  }
+}
+@keyframes morph {
+  0%,
+  100% {
+    border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+  }
+  34% {
+    border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+  }
+  67% {
+    border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
   }
 }
 </style>

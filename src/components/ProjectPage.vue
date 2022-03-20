@@ -170,7 +170,7 @@ body #projects {
 
 .project-title {
   background-color: #f36f72;
-  height: 60px;
+  height: fit-content;
   color: #fff;
   position: absolute;
   top: 120px;
@@ -181,7 +181,7 @@ body #projects {
   z-index: 3;
   font-size: 18px;
   font-weight: 900;
-  padding: 0 20px;
+  padding: 10px 20px;
   border-radius: 15px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -190,7 +190,7 @@ body #projects {
     padding: 8px 40px 8px 50px;
     font-size: 20px;
   }
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: 1200px) {
     font-size: 24px;
     padding: 10px 30px 10px 80px;
   }
@@ -204,6 +204,7 @@ body #projects {
 @media screen and (min-width: 800px) {
   .fullImgContainer {
     display: none;
+    opacity: 0;
     position: fixed;
     // background: #00000044;
     top: 0;

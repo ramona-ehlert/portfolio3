@@ -118,7 +118,7 @@ export default new Vuex.Store({
     projects: [
       {
         name: "The Brick: Buy the Matching Sofa",
-        desc: "An eccomerce tool which assists users shopping a potentially puzzling promotion",
+        desc: "An e-comerce tool which assists users shopping a potentially puzzling promotion",
         stack: ["Shopify", "JavaScript", "Liquid", "SCSS", "Figma", "JQuery"],
         description: "Explore a scene frozen in time and get a glimpse of the greatness of the Ice Age Megafauna at Tar Pit Park. As my final project at Innotech College, my skills were put to the test as I conceptualized, designed, researched and developed an interactive educational tool. I taught myself Babylon.js, a 3D game rendering engine javascript framework that allows the user to learn in a unique environment.",
         links: ["https://github.com/jacksonoviatt/tar_pit_park_front",

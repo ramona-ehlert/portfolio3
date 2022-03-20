@@ -4,15 +4,17 @@
       <header-container></header-container>
     </div>
     <router-view></router-view>
+    <page-footer></page-footer>
     <!-- <router-view/> -->
   </div>
 </template>
 <script>
 import HeaderContainer from "./components/HeaderContainer.vue";
+import PageFooter from './components/PageFooter.vue';
 // import SkillsPage from './components/SkillsPage.vue';
 
 export default {
-  components: { HeaderContainer },
+  components: { HeaderContainer, PageFooter },
   setup() {},
   data() {
     return {
@@ -36,14 +38,15 @@ export default {
 </script>
 
 <style lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+// @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap");
 * {
   margin: 0;
   padding: 0;
 }
 #app {
   background-color: #1a1a40;
-  font-family: "Roboto Slab", serif;
+  font-family: "Rubik", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -88,6 +91,20 @@ h4 {
 }
 .lpurple-back {
   background-color: #7a0bc0;
+}
+.about {
+  min-height: 100vh;
+}
+.aboutDiv {
+  display: none;
+  opacity: 0;
+  transition: 0.6s all ease-in-out;
+}
+.fadeIn {
+  opacity: 1;
+}
+.active {
+  display: block;
 }
 // .light-purple-b {
 //
