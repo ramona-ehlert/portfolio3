@@ -1,6 +1,6 @@
 <template>
   <div id="welcome-message">
-    <h1>Hi, I'm Ramona, <br />a full stack web developer</h1>
+    <h1 class="hidden">Hi, I'm Ramona, <br />a full stack web developer</h1>
 
     <div class="welcome-grid">
       <!-- <h4>
@@ -88,7 +88,9 @@
         <img src="../assets/downS.svg"  alt="down arrow"> -->
       </div>
     </div>
-    <div class="blobby"><div class="colorBlob"></div></div>
+    <div class="blobby blobMove">
+      <div class="colorBlob"></div>
+    </div>
   </div>
 </template>
 
@@ -96,11 +98,18 @@
 export default {
   mounted() {
     window.addEventListener("scroll", this.hideBounce);
+    setTimeout(function () {
+      let divs = document.querySelectorAll("div");
+    for (let i = 0; i < divs.length; i++) {
+      divs[i].classList.add("showDivs");
+    }
+    }, 400)
+    
   },
   methods: {
+
     hideBounce() {
-      document.querySelector(".bottom-down").style =
-        "opacity:0;animationDuration:0s;";
+      document.querySelector(".bottom-down").style = "opacity:0;animationDuration:0s;";
     },
     goDown() {
       console.log(window.innerHeight);
@@ -127,6 +136,14 @@ export default {
     // padding-bottom: 90px;
   }
 }
+div {
+  // add transitions to the divs on the page that you want to fade in slow
+    // transition: 1s all ease-in-out;
+    opacity: 0;
+  }
+  .showDivs {
+    opacity: 1;
+  }
 .down {
   display: grid;
   width: 100%;
@@ -228,6 +245,7 @@ a {
   animation-duration: 24s;
   animation-iteration-count: infinite;
 }
+
 .blobby {
   height: 240px;
   width: 60%;
@@ -235,37 +253,39 @@ a {
   left: 20%;
   z-index: 0;
   margin: auto;
-  border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+  // border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
   transform: rotate(180deg);
+  transition: 0.6s all ease-in;
 
   position: absolute;
-  animation-name: morph;
-    animation-duration: 14s;
-    animation-iteration-count: infinite;
+animation-iteration-count: 1;
   @media screen and (min-width: 650px) {
     width: 40%;
     left: 30%;
-    
   }
-   @media screen and (min-width: 1000px) {
-    height: 400px;
+  @media screen and (min-width: 1000px) {
+    height: 280px;
   }
+}
+.blobMove {
+  animation-name: morph;
+  animation-duration: 24s;
+  animation-iteration-count: infinite;
 }
 
 @keyframes morph {
   0%,
   100% {
-    border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+    border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
   }
   34% {
     border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
   }
   67% {
-    border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+    border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
   }
 }
 .colorBlob {
-  
   animation-name: blobColor;
   animation-duration: 24s;
   animation-iteration-count: infinite;
@@ -273,36 +293,9 @@ a {
   width: 100%;
   border-radius: inherit;
 }
-@keyframes example {
-  0% {
 
-    color: #9043c1;
-    fill: #9043c1;
-  }
-  20% {
-
-    color: #fa58b6;
-    fill: #fa58b6;
-  }
-  40% {
-    color: #f36f72;
-    fill: #f36f72;
-  }
-  60% {
-    color: #eb862e;
-    fill: #eb862e;
-  }
-  70% {
-    color: #fa58b6;
-    fill: #fa58b6;
-  }
-  100% {
-    color: #9043c1;
-    fill: #9043c1;
-  }
-}
 @keyframes blobColor {
-   0% {
+  0% {
     background-color: #9043c1;
   }
   20% {

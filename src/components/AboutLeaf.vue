@@ -1,6 +1,6 @@
 <template>
     <div>
-Leaf
+<h2>Other things I love</h2>
     </div>
 </template>
 

@@ -169,7 +169,7 @@ body #projects {
 }
 
 .project-title {
-  background-color: #f36f72;
+  background-color: #1a1a40;
   height: fit-content;
   color: #fff;
   position: absolute;
@@ -177,7 +177,7 @@ body #projects {
   left: 0px;
   display: grid;
   align-content: center;
-  text-align: right;
+  text-align: left;
   z-index: 3;
   font-size: 18px;
   font-weight: 900;
@@ -186,13 +186,21 @@ body #projects {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   max-width: 80vw;
+  animation-name: example;
+  animation-iteration-count: infinite;
+  animation-duration: 32s;
+  transition: 0.4s all ease-in-out;
+
+h2 {
+  font-weight: 600;
+}
   @media screen and (min-width: 600px) {
-    padding: 8px 40px 8px 50px;
+    padding: 16px 40px 16px 50px;
     font-size: 20px;
   }
   @media screen and (min-width: 1200px) {
     font-size: 24px;
-    padding: 10px 30px 10px 80px;
+    padding: 20px 30px 20px 80px;
   }
 }
 @media screen and (max-width: 800px) {
@@ -351,6 +359,12 @@ body #projects {
   @media screen and (min-width: 1300px) {
     right: 120px;
   }
+  @media screen and (min-width: 1600px) {
+    right: 380px;
+  }
+   @media screen and (min-width: 1800px) {
+    right: 480px;
+  }
   text-align: left;
 
   // h2 {
@@ -361,6 +375,7 @@ body #projects {
     width: 170px;
     background-color: #f7999b;
     margin-bottom: 20px;
+    
   }
   h4 {
     margin-right: 10px;
@@ -373,13 +388,18 @@ body #projects {
 
 .line-box {
   width: fit-content;
+  
   // margin-left: 40px;
   margin-bottom: 20px;
   .line {
+    max-width: 80vw;
     height: 2px;
     width: 120%;
     // margin-bottom: 40px;
     margin: auto;
+  }
+  h2 {
+        width: fit-content;
   }
 }
 .text-grid {
@@ -418,7 +438,7 @@ body #projects {
   width: 100%;
   justify-content: center;
   @media screen and (min-width: 850px) {
-    margin-left: 30%;
+    margin-left: 100px;
   }
 
   img {

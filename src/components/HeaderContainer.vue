@@ -44,9 +44,14 @@
           </div>
         </div>
         <div class="nav-tab">
-          <a href="/#skills-page" @click="closeMenu()">My Skills</a>
+          <a
+            href="/about#skills-page"
+            id="skills-link"
+            @click="closeMenu(), goToSkills()"
+            >Coding Skills</a
+          >
         </div>
-    
+
         <div class="nav-tab">
           <a href="/about" @click="closeMenu()">About Me</a>
         </div>
@@ -59,7 +64,7 @@
 </template>
 
 <script>
-import SocialGrid from './SocialGrid.vue';
+import SocialGrid from "./SocialGrid.vue";
 export default {
   components: { SocialGrid },
   data() {
@@ -68,6 +73,14 @@ export default {
     };
   },
   methods: {
+    goToSkills() {
+      if (
+        window.location.href.includes("about") === true &&
+        sessionStorage.getItem("about") !== "code"
+      ) {
+        document.getElementById("code").click();
+      }
+    },
     openMenu() {
       console.log("hello");
       document.getElementById("navBox").style.left = "0px";
@@ -192,26 +205,26 @@ header {
     }
   }
   .socials {
-  display: grid;
-  place-content: center;
-  position: absolute;
-  bottom: 0px;
-  right: 30px;
-  margin-bottom: 30px;
-  img {
-    height: 40px;
-    margin-bottom: 24px;
+    display: grid;
+    place-content: center;
+    position: absolute;
+    bottom: 0px;
+    right: 30px;
+    margin-bottom: 30px;
+    img {
+      height: 40px;
+      margin-bottom: 24px;
+    }
+    @media screen and (min-width: 1000px) {
+      right: 40px;
+    }
   }
-  @media screen and (min-width: 1000px) {
-    right: 40px;
-  }
-}
 }
 
 .small-link {
   font-size: 16px;
   margin: 40px 0;
-
+  font-weight: 500;
   @media screen and (min-width: 1000px) {
     font-size: 24px;
   }
@@ -233,5 +246,4 @@ header {
     box-shadow: inset #ffffff33 0px 0px 4px;
   }
 }
-
 </style>

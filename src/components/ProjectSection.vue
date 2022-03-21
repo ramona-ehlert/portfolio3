@@ -87,7 +87,7 @@ export default {
   position: relative;
   transition: 0.3s all ease-in;
   border-radius: 10px;
-  margin: 10px;
+  margin: 20px;
   h3 {
     color: #fff;
     position: relative;

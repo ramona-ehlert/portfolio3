@@ -6,9 +6,9 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     skills: {
-      front: {
-        name: "Front End",
-        tech: {
+      // front: {
+      //   name: "Front End",
+      //   tech: {
           js: {
             name: "Javascript",
             logo: require("../assets/javascript.png")
@@ -40,12 +40,12 @@ export default new Vuex.Store({
           ajax: {
             name: "AJAX",
             logo: require("../assets/ajax.png")
-          }
-        }
-      },
-      back: {
-        name: "Back End",
-        tech: {
+          },
+        // }
+      // },
+      // back: {
+      //   name: "Back End",
+      //   tech: {
           py: {
             name: "Python",
             logo: require("../assets/python.png")
@@ -71,11 +71,11 @@ export default new Vuex.Store({
             name: "API",
             logo: require("../assets/api.png")
           },
-        }
-      },
-      otherTools: {
-        name: "Other Tools",
-        tech: {
+        
+      // },
+      // otherTools: {
+      //   name: "Other Tools",
+      //   tech: {
           fig: {
             name: "Figma",
             logo: require("../assets/figma.svg")
@@ -112,8 +112,8 @@ export default new Vuex.Store({
             name: "VSCode",
             logo: require("../assets/vscode.png")
           }
-        }
-      },
+        // }
+      // }
     },
     projects: [
       {

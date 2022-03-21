@@ -1,6 +1,6 @@
 <template>
     <div>
-Pets
+<h2>My coding buddies</h2>
     </div>
 </template>
 

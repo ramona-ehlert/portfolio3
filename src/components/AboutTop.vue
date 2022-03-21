@@ -52,6 +52,16 @@
 
 <script>
 export default {
+  mounted() {
+    console.log(sessionStorage.getItem("about"));
+    if (sessionStorage.getItem("about") === null) {
+      sessionStorage.setItem("about", "code");
+      console.log(sessionStorage.getItem("about"));
+    } else {
+      this.$emit("aboutView", sessionStorage.getItem("about"));
+      // el.classList.add("activate");
+    }
+  },
   methods: {
     sendView(e) {
       if (document.querySelector(".activate")) {
@@ -59,6 +69,8 @@ export default {
       }
       let el = e.currentTarget;
       console.log(el.id);
+      console.log(sessionStorage);
+      sessionStorage.setItem("about", el.id);
       this.$emit("aboutView", el.id);
       el.classList.add("activate");
     },
@@ -68,43 +80,20 @@ export default {
 
 <style lang="scss" scoped>
 h1 {
-    font-size: 42px;
-    text-align: left;
+  font-size: 42px;
+  text-align: left;
   animation-name: example;
   animation-duration: 48s;
   animation-iteration-count: infinite;
   text-shadow: #00000055 0 3px 10px;
   padding-top: 50px;
 }
-@keyframes example {
-  0% {
-    color: #9043c1;
-    fill: #9043c1;
-  }
-  20% {
-    color: #fa58b6;
-    fill: #fa58b6;
-  }
-  40% {
-    color: #f36f72;
-    fill: #f36f72;
-  }
-  60% {
-    color: #eb862e;
-    fill: #eb862e;
-  }
-  70% {
-    color: #fa58b6;
-    fill: #fa58b6;
-  }
-  100% {
-    color: #9043c1;
-    fill: #9043c1;
-  }
-}
+
+ 
+
 .about-nav {
   display: grid;
-  //     place-content: center;
+      justify-items: center;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   // height: 100vh;
   //     width: 80%;
