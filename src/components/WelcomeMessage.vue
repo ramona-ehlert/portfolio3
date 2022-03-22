@@ -9,16 +9,16 @@
         where I have been maintaing and improving the eccommerce website, with a
         focus on bringing the mobile experience into the modern age.
       </h4> -->
-      <h4>
+      <p class="welcome-text">
         I’m a dev with an affinity for front end design and development. I
         currently reside in Edmonton Alberta, I spend my days maintaining and
-        improving The Brick's e-commerce website, a custom Shopify store which
+        improving The Brick's ecommerce website, a custom Shopify store which
         hosts hundreds of thousands of daily visitors. Here I am focused on
         streamlining and modernizing the mobile shopping experience.<br />
         <router-link to="/about"
           ><span class="toAbout">More about me >></span></router-link
         >
-      </h4>
+      </p>
 
       <img
         src="../assets/fullstack.svg"
@@ -207,11 +207,13 @@ h1 {
   }
 }
 
-h4 {
+.welcome-text {
   text-align: left;
   font-size: 14px;
   line-height: 30px;
   padding-top: 12px;
+  font-weight: 500;
+  padding-bottom: 30px;
   //   width: 90%;
   @media screen and (min-width: 400px) {
     font-size: 18px;

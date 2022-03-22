@@ -1,7 +1,7 @@
 <template>
   <div id="mobileNav">
     <nav id="open-menu" @click="openMenu()">
-      <h3>Menu</h3>
+      <p>Menu</p>
     </nav>
     <div id="nav-mask" @click="closeMenu()"></div>
     <header id="navBox">
@@ -132,8 +132,17 @@ export default {
     box-shadow: inset #ffffff33 0px 0px 4px;
   }
 
-  h3 {
-    margin-top: 2px;
+  p {
+    font-size: 19px;
+    margin-top: -1px;
+    font-weight: bold;
+  }
+  @media screen and (min-width: 1000px) {
+    width: 108px;
+    height: 36px;
+    p {
+      font-size: 24px;
+    }
   }
 }
 #nav-mask {

@@ -29,7 +29,7 @@
 
       <!-- <div class="long"></div> -->
 
-      <div class="the-ask text-box">
+      <div class="the-ask text-box" v-if="project.ask">
         <div class="line-box">
         <h2>The Ask</h2>
         <div class="line"></div>
@@ -71,7 +71,7 @@
         <div v-html="project.ask"></div>
       </div>
 
-      <div class="results">
+      <div class="results" v-if="project.results">
         <div class="layer1"></div>
         <div class="layer2"></div>
         <div class="layer3">

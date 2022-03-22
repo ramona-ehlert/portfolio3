@@ -45,9 +45,7 @@ export default {
       for (let i = 0; i < projectstore.length; i++) {
         if(window.location.href.indexOf(projectstore[i].page) === -1){
           projects.push(projectstore[i])
-       
         }
-        
       }
       return projects
       ;

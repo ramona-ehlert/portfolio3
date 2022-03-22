@@ -1,6 +1,6 @@
 <template>
     <div class="socials">
-        <a href="">
+        <a href="https://github.com/jacksonoviatt">
           <img src="../assets/github.svg" alt="the github logo" />
         </a>
         <a href="">
