@@ -11,7 +11,9 @@
         <!-- </div> -->
         <!-- </div> -->
       </div>
-      <div @click="clearColor">clear all</div>
+      <div class="clear-contain">
+        <div id="clear-color" @click="clearColor">clear all</div>
+      </div>
     </div>
   </section>
 </template>
@@ -37,14 +39,22 @@ export default {
         ) {
           color[i].classList.remove("colors");
         }
+        document.getElementById("clear-color").style.opacity = "0";
       }
     },
     colors(e) {
       //  e.currentTarget
+      
       if (e.currentTarget.classList.value.includes("colors") === true) {
         e.currentTarget.classList.remove("colors");
       } else {
         e.currentTarget.classList.add("colors");
+      }
+      if(document.querySelector('.skill-section').getElementsByClassName("colors").length > 0){
+        document.getElementById("clear-color").style.opacity = "1";
+        
+      } else {
+        document.getElementById("clear-color").style.opacity = "0";
       }
     },
   },
@@ -80,6 +90,7 @@ p {
   display: inline-block;
   margin: 0px 0 80px;
   align-self: start;
+  position: relative;
   // padding-top: 60px;
 }
 .skill {
@@ -118,4 +129,22 @@ p {
     width: 60%;
   }
 }
+.clear-contain {
+  position: absolute;
+  width: 100%;
+  display: grid;
+  place-content: center;
+}
+#clear-color {
+  opacity: 0;
+  background: linear-gradient(to right, #EB862E, #FA58B6);
+  width: fit-content;
+  padding: 5px 10px;
+  border-radius: 4px;
+  color: #1a1a40;
+  font-weight: 500;
+  transition: ease-in-out 0.4s all;
+  // font-size: 20px;
+}
+
 </style>

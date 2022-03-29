@@ -9,12 +9,16 @@
         where I have been maintaing and improving the eccommerce website, with a
         focus on bringing the mobile experience into the modern age.
       </h4> -->
-      <p class="welcome-text">
-        I’m a dev with an affinity for front end design and development. I
-        currently reside in Edmonton Alberta, I spend my days maintaining and
+      <!--   I’m a dev with an affinity for front end design and development. I
+        currently reside in Edmonton Alberta, where I spend my days maintaining and
         improving The Brick's ecommerce website, a custom Shopify store which
         hosts hundreds of thousands of daily visitors. Here I am focused on
         streamlining and modernizing the mobile shopping experience.<br />
+        <router-link to="/about" -->
+      <p class="welcome-text">
+        I’m a dev with an affinity for front end design and development. I
+        currently reside in Edmonton Alberta, where I spend my days maintaining
+        and improving The Brick's ecommerce website.<br />
         <router-link to="/about"
           ><span class="toAbout">More about me >></span></router-link
         >
@@ -100,16 +104,15 @@ export default {
     window.addEventListener("scroll", this.hideBounce);
     setTimeout(function () {
       let divs = document.querySelectorAll("div");
-    for (let i = 0; i < divs.length; i++) {
-      divs[i].classList.add("showDivs");
-    }
-    }, 400)
-    
+      for (let i = 0; i < divs.length; i++) {
+        divs[i].classList.add("showDivs");
+      }
+    }, 400);
   },
   methods: {
-
     hideBounce() {
-      document.querySelector(".bottom-down").style = "opacity:0;animationDuration:0s;";
+      document.querySelector(".bottom-down").style =
+        "opacity:0;animationDuration:0s;";
     },
     goDown() {
       console.log(window.innerHeight);
@@ -125,6 +128,7 @@ export default {
   min-height: 100vh;
   display: grid;
   place-content: center;
+  margin: 0px 5%;
   // padding-top: 20px;
   // padding-bottom: 20px;
   @media screen and (min-width: 500px) {
@@ -138,12 +142,12 @@ export default {
 }
 div {
   // add transitions to the divs on the page that you want to fade in slow
-    // transition: 1s all ease-in-out;
-    opacity: 0;
-  }
-  .showDivs {
-    opacity: 1;
-  }
+  // transition: 1s all ease-in-out;
+  opacity: 0;
+}
+.showDivs {
+  opacity: 1;
+}
 .down {
   display: grid;
   width: 100%;
@@ -193,17 +197,15 @@ h1 {
   @media screen and (min-width: 450px) {
     font-size: 32px;
   }
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 700px) {
     font-size: 36px;
   }
-  @media screen and (min-width: 800px) {
-    font-size: 42px;
+  @media screen and (min-width: 950px) {
+    font-size: 40px;
   }
-  @media screen and (min-width: 1000px) {
-    font-size: 48px;
-  }
+
   @media screen and (min-width: 1200px) {
-    font-size: 52px;
+    font-size: 46px;
   }
 }
 
@@ -214,19 +216,21 @@ h1 {
   padding-top: 12px;
   font-weight: 500;
   padding-bottom: 30px;
+  padding-right: 10%;
+
   //   width: 90%;
   @media screen and (min-width: 400px) {
-    font-size: 18px;
+    font-size: 20px;
     // width: 70%;
   }
   @media screen and (min-width: 500px) {
     line-height: 40px;
   }
-  @media screen and (min-width: 900px) {
-    font-size: 24px;
-    line-height: 45px;
-  }
-  @media screen and (min-width: 1200px) {
+  // @media screen and (min-width: 900px) {
+  //   font-size: 24px;
+  //   line-height: 45px;
+  // }
+  @media screen and (min-width: 1400px) {
     font-size: 28px;
   }
 }
@@ -260,7 +264,7 @@ a {
   transition: 0.6s all ease-in;
 
   position: absolute;
-animation-iteration-count: 1;
+  animation-iteration-count: 1;
   @media screen and (min-width: 650px) {
     width: 40%;
     left: 30%;

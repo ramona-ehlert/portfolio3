@@ -1,5 +1,5 @@
 <template>
-    <section style="width: 400px;">
+    <section>
 <h3>My Education</h3>
 <p>Near the beginning of the pandemic I was working in respite care. To keep everyone safe household contacts had to be limited, and I suddenly had a lot more free time on my hands. I thought that it was finally time I took coding seriously.
 </p><p>

@@ -2,7 +2,10 @@
   <div class="pizza" style="display:grid;place-content:center;">
     <project-page :project="storeProject"></project-page>
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
-     Other Projects
+     <div class="line-box">
+      <p class="proj-title">Other Projects</p> 
+      <div class="line"></div>
+    </div>
     <project-section></project-section>
   </div>
 </template>

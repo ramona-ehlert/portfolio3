@@ -39,6 +39,11 @@ export default {
   methods: {
     name() {},
   },
+  mounted () {
+    if(window.location.href.includes("skills-page") === true){
+      document.getElementById("skills-page").scrollIntoView();
+    }
+  },
 };
 </script>
 

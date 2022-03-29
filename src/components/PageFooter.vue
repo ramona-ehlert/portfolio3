@@ -2,12 +2,12 @@
   <div id="footer">
     <div class="contact">
       <div class="line-box">
-        <p class="title">Contact Me<br></p>
+        <p class="title">Contact Me<br /></p>
         <div class="line"></div>
       </div>
-      
-      <p href="mailto:ramonaoviatt@gmail.com">
-        ramonaoviatt@gmail.com<i
+
+      <p>
+        ramonaoviatt@gmail.com<i @click="copyEmail"
           ><svg
             width="512"
             height="512"
@@ -21,12 +21,12 @@
             />
           </svg>
         </i>
+        <span id="toolTip" class="tool-tip"> Email copied to clipboard </span>
       </p>
 
       <social-grid></social-grid>
-      <div class="vue"><p >This website was created with Vue</p></div>
+      <div class="vue"><p>This website was created with Vue</p></div>
     </div>
-    
   </div>
 </template>
 
@@ -34,6 +34,25 @@
 import SocialGrid from "./SocialGrid.vue";
 export default {
   components: { SocialGrid },
+  methods: {
+    copyEmail() {
+      navigator.clipboard.writeText("ramonaoviatt@gmail.com");
+      document.getElementById("toolTip").classList.add("copied");
+      setTimeout(function () {
+        console.log("hello");
+        document.getElementById("toolTip").style.opacity = "1";
+      }, 100);
+      setTimeout(function () {
+          console.log("hello");
+          document.getElementById("toolTip").style.opacity = "0";
+        }, 2000);
+      setTimeout(function () {
+        console.log("hello");
+        document.getElementById("toolTip").classList.remove("copied");
+        
+      }, 2400);
+    },
+  },
   // MAKE FUNCTIONALITY AND A TOOL TIP FOR THE EMAIL COPY BUTTON
 };
 </script>
@@ -47,17 +66,20 @@ export default {
   left: 0;
   display: grid;
   justify-content: left;
-}
+
 .line-box {
   display: grid;
-width: fit-content;
-}
-.line {
+  width: fit-content;
+  margin-bottom: 0;
+  .line {
   height: 2px;
   width: 100%;
   margin-left: 24px;
+  
   background: #fff;
-//  padding-top: 10px;
+  //  padding-top: 10px;
+}
+}
 }
 .contact {
   padding-top: 50px;
@@ -66,7 +88,7 @@ width: fit-content;
   margin-bottom: 24px;
   .title {
     font-size: 24px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     span {
       height: 2px;
       width: 100px;
@@ -81,6 +103,7 @@ width: fit-content;
   }
   i {
     margin-left: 10px;
+    cursor: pointer;
 
     svg {
       margin-bottom: -10px;
@@ -96,9 +119,29 @@ width: fit-content;
   }
 }
 
+.tool-tip {
+  opacity: 0;
+  transition: 0.4s all ease-in-out;
+  font-size: 14px;
+  display: none;
+  background: #e0caee;
+  padding: 6px;
+  border: solid 2px #fff;
+  color: #9043c1;
+  width: 140px;
+  text-align: center;
+  position: absolute;
+  left: 184px;
+  margin-top: 12px;
+  border-radius: 8px;
+}
+.copied {
+  display: grid;
+}
+
 .vue {
   p {
-      font-size: 16px;
+    font-size: 16px;
   }
 }
 </style>

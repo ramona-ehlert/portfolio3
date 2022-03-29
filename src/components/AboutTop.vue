@@ -1,8 +1,11 @@
 <template>
   <div>
-    <h1>About Me</h1>
+    <div class="line-box">
+      <h1>About Me</h1>
+      <div class="line"></div>
+    </div>
     <div class="about-nav">
-      <div class="abt-button activate" id="code" @click="sendView">
+      <div class="abt-button" id="code" @click="sendView">
         <svg
           viewBox="0 0 102 82"
           fill="none"
@@ -57,8 +60,18 @@ export default {
     if (sessionStorage.getItem("about") === null) {
       sessionStorage.setItem("about", "code");
       console.log(sessionStorage.getItem("about"));
+      document.getElementById("code").classList.add("activate");
+    } else if (window.location.href.includes("skills") === true) {
+      this.$emit("aboutView", "code");
+      document.getElementById("code").classList.add("activate");
+      window.scrollTo({ top: window.innerHeight - 80, behavior: "smooth" });
     } else {
+      console.log("this is what happens");
       this.$emit("aboutView", sessionStorage.getItem("about"));
+
+      document
+        .getElementById(sessionStorage.getItem("about"))
+        .classList.add("activate");
       // el.classList.add("activate");
     }
   },
@@ -82,18 +95,15 @@ export default {
 h1 {
   font-size: 42px;
   text-align: left;
-  animation-name: example;
-  animation-duration: 48s;
-  animation-iteration-count: infinite;
-  text-shadow: #00000055 0 3px 10px;
+  font-weight: 700;
+  color: #ac5adf;
+  text-shadow: 0px 4px 4px #000000;
   padding-top: 50px;
 }
 
- 
-
 .about-nav {
   display: grid;
-      justify-items: center;
+  justify-items: center;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   // height: 100vh;
   //     width: 80%;
@@ -104,8 +114,10 @@ h1 {
     width: 60px;
     fill: #9043c1;
     color: #9043c1;
+    cursor: pointer;
     svg {
       fill: #9043c1;
+      width: 60px;
       height: 40px;
       transition: 0.8s all ease;
     }
@@ -125,7 +137,21 @@ h1 {
       fill: #f7999b;
     }
   }
-  @media screen and (min-width: 100px) {
+  @media screen and (max-width: 500px) {
+    .activate {
+      .active-line {
+        width: 40px;
+        background: #fa58b6;
+      }
+    }
+    .abt-button {
+      margin: 40px 20px;
+      width: 40px;
+      height: 30px;
+      svg {
+        width: 40px;
+      }
+    }
   }
 }
 // }

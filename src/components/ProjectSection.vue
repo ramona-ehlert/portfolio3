@@ -56,10 +56,11 @@ export default {
 
 <style lang="scss" scoped>
 #project-cards {
-  margin-top: 40px;
+  margin: 16px 0;
   display: grid;
   place-content: center;
   grid-template-columns: 1fr;
+  margin-bottom: 40px;
   @media screen and (min-width: 600px) {
     grid-template-columns: 1fr 1fr;
   }
@@ -110,7 +111,7 @@ export default {
   &:hover {
     transition: 0.3s all ease-in;
     h3 {
-      font-weight: 900;
+      // font-weight: 900;
       transition: 0.3s all ease-in;
       text-decoration: none;
     }
@@ -122,8 +123,8 @@ export default {
   @media screen and (min-width: 600px) {
     height: 260px;
   }
-  @media screen and (min-width: 1100px) {
-    height: 300px;
-  }
+  // @media screen and (min-width: 1100px) {
+  //   height: 300px;
+  // }
 }
 </style>

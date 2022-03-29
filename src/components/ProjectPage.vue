@@ -3,10 +3,28 @@
     <div class="projectsBackground"></div>
     <div class="project-title">
       <h2>{{ project.name }}</h2>
+      <div class="project-link">
+        <a :href="project.link">{{ project.link }}</a>
+        <p>// {{ project.date }}</p>
+      </div>
+    </div>
+    <div class="note">
+      <div>
+        <img src="../assets/github.svg" alt="" />
+      </div>
+      <div v-if="project.links.length > 1">
+        <a :href="project.links[0]">Front End</a>
+        <a :href="project.links[1]">Back End</a>
+      </div>
+      <div v-if="project.links.length === 1">
+        <a :href="project.links[0]">Go to Code</a>
+        <!-- <a :href="project.links[1]">Back End</a> -->
+      </div>
     </div>
 
     <div class="main-mask lpurple-back"></div>
     <img class="project-image" :src="project.image" />
+
     <div class="text-grid">
       <div class="tech-stack">
         <div class="layer1"></div>
@@ -28,15 +46,19 @@
       </div>
 
       <!-- <div class="long"></div> -->
-
+      <div
+        class="proj-desc"
+        v-if="project.description"
+        v-html="project.description"
+      ></div>
       <div class="the-ask text-box" v-if="project.ask">
         <div class="line-box">
-        <h2>The Ask</h2>
-        <div class="line"></div>
+          <h2>The Ask</h2>
+          <div class="line"></div>
         </div>
         <div v-html="project.ask"></div>
       </div>
-      <div class="wireframe">
+      <div class="wireframe" v-if="project.wireframe">
         <img :src="project.wireframe" :alt="project.wireAlt" />
         <div class="wire-label">
           <div class="layer1"></div>
@@ -44,31 +66,34 @@
           <div class="layer3">
             <div class="padding">
               <h4>{{ project.wireLabel }}</h4>
-              <div v-if="project.fullImg" class="open-full" @click="openFullImg()">
-          Open Full Screen
-        </div>
+              <div
+                v-if="project.fullImg"
+                class="open-full"
+                @click="openFullImg()"
+              >
+                Open Full Screen
+              </div>
             </div>
           </div>
         </div>
-        
       </div>
       <div class="case">
         <img :src="project.case" :alt="project.wireframe" />
       </div>
-      <div class="the-work text-box">
+      <div class="the-work text-box" v-if="project.work">
         <div class="line-box">
-        <h2>Get to work</h2>
-        <div class="line"></div>
+          <h2>Getting to work</h2>
+          <div class="line"></div>
         </div>
         <div v-html="project.work"></div>
       </div>
 
-      <div class="the-sol text-box">
+      <div class="the-sol text-box" v-if="project.sol">
         <div class="line-box">
-        <h2>It's all coming together</h2>
-        <div class="line"></div>
+          <h2>It's all coming together</h2>
+          <div class="line"></div>
         </div>
-        <div v-html="project.ask"></div>
+        <div v-html="project.sol"></div>
       </div>
 
       <div class="results" v-if="project.results">
@@ -77,8 +102,8 @@
         <div class="layer3">
           <div class="padding">
             <div class="line-box">
-            <h2>Results</h2>
-            <div class="line"></div>
+              <h2>Results</h2>
+              <div class="line"></div>
             </div>
             <div v-html="project.results"></div>
           </div>
@@ -167,7 +192,32 @@ body #projects {
   padding: 30px;
   padding-bottom: 20px;
 }
-
+.proj-desc {
+  align-self: center;
+  height: 400px;
+  display: grid;
+  align-content: center;
+}
+.note {
+  position: absolute;
+  top: calc(50vh + 20px);
+  display: grid;
+  place-content: center;
+  grid-template-columns: 40px calc(100% - 40px);
+  div {
+    display: grid;
+    place-content: center; 
+    grid-template-columns: 1fr 1fr;
+     }
+  a {
+    padding: 0px 0px 0px 16px;
+     color: #fa58b6;
+     font-size: 18px;
+  }
+  img {
+    height: 30px;
+  }
+}
 .project-title {
   background-color: #1a1a40;
   height: fit-content;
@@ -186,14 +236,30 @@ body #projects {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   max-width: 80vw;
+
   animation-name: example;
   animation-iteration-count: infinite;
   animation-duration: 32s;
   transition: 0.4s all ease-in-out;
 
-h2 {
-  font-weight: 600;
-}
+  h2 {
+    font-weight: 600;
+  }
+  .project-link {
+    display: inline-block;
+    margin-top: 0px;
+    // place-content: center;
+    // grid-template-columns: ;
+    p {
+      color: #fa58b6;
+      display: inline-block;
+    }
+  }
+  a {
+    color: #eb862e;
+    display: inline-block;
+    margin-right: 16px;
+  }
   @media screen and (min-width: 600px) {
     padding: 16px 40px 16px 50px;
     font-size: 20px;
@@ -240,6 +306,7 @@ h2 {
       position: relative;
     }
   }
+
   .xBars {
     position: absolute;
     right: 40px;
@@ -247,9 +314,9 @@ h2 {
     height: 40px;
     width: 40px;
     z-index: 15;
-@media screen and (min-width:920px) {
-  right: 50px;
-}
+    @media screen and (min-width: 920px) {
+      right: 50px;
+    }
     svg {
       height: 40px;
       width: 40px;
@@ -259,15 +326,9 @@ h2 {
     }
   }
   .open-full {
+    cursor: pointer;
     font-weight: 500;
-    // display: block;
-    // background: #7A0BC0aa;
-    // width: fit-content;
-    // height: fit-content;
     padding: 5px;
-    // position: relative;
-    // bottom: 60px;
-    // left: 60%;
     text-decoration: underline;
   }
 }
@@ -297,7 +358,7 @@ h2 {
   z-index: -1;
   height: 100%;
   width: 100%;
-  background: #f7999b;
+  background-image: linear-gradient(to right, #eb862e, #fa58b6);
   border-radius: 16px;
 }
 .layer3 {
@@ -331,7 +392,12 @@ h2 {
   // width: 100%;
   // margin-right: -20px;
 }
-
+.project-link {
+  font-size: 16px;
+  font-weight: 400;
+  // position: absolute;
+  // top: calc(50vh + 10px);
+}
 .tech-stack {
   top: calc(50vh + 50px);
   right: 0px;
@@ -341,17 +407,11 @@ h2 {
   max-width: 80%;
   margin: auto;
   z-index: 4;
-
-  // @media screen and (max-width: 300px) {
-  //   padding: 20px;
-  // }
-
   @media screen and (min-width: 550px) {
     top: calc(50vh - 140px);
     right: 60px;
     left: auto;
   }
-
   @media screen and (min-width: 1100px) {
     right: 80px;
     top: calc(50vh - 150px);
@@ -362,20 +422,16 @@ h2 {
   @media screen and (min-width: 1600px) {
     right: 380px;
   }
-   @media screen and (min-width: 1800px) {
+  @media screen and (min-width: 1800px) {
     right: 480px;
   }
   text-align: left;
 
-  // h2 {
-  //   color: #fa58b6;
-  // }
   .line {
     height: 2px;
     width: 170px;
-    background-color: #f7999b;
+    background-image: linear-gradient(to right, #eb862e, #fa58b6);
     margin-bottom: 20px;
-    
   }
   h4 {
     margin-right: 10px;
@@ -385,33 +441,24 @@ h2 {
   }
 }
 
-
-.line-box {
-  width: fit-content;
-  
-  // margin-left: 40px;
-  margin-bottom: 20px;
-  .line {
-    max-width: 80vw;
-    height: 2px;
-    width: 120%;
-    // margin-bottom: 40px;
-    margin: auto;
-  }
-  h2 {
-        width: fit-content;
-  }
-}
 .text-grid {
   display: grid;
   place-content: center;
   text-align: left;
   grid-template-columns: 1fr;
+  > div {
+    // margin-top: 40px;
+    margin: 20px 10px;
+  }
   // margin-bottom: 120px;
   @media screen and (min-width: 850px) {
     grid-template-columns: 1fr 1fr;
-    column-gap: 20px;
-    row-gap: 100px;
+    > div {
+      // margin-top: 40px;
+      margin: 30px 15px;
+    }
+    // column-gap: 20px;
+    // row-gap: 40px;
   }
 }
 .the-ask {
@@ -424,11 +471,7 @@ h2 {
 
   // width: 50%;
 }
-.text-box {
-  .line {
-    background-color: #fa58b6;
-  }
-}
+
 //
 
 .wireframe {
@@ -497,7 +540,7 @@ h2 {
   .line {
     height: 2px;
     width: 120px;
-    background-color: #f7999b;
+    background-image: linear-gradient(to right, #eb862e, #fa58b6);
     margin-bottom: 10px;
   }
   .padding {

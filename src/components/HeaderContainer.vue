@@ -123,6 +123,7 @@ export default {
   z-index: 9;
   display: grid;
   place-content: center;
+  box-shadow: -1px 1px 5px #00000044;
   cursor: pointer;
   // border-radius: 8px;
   // box-shadow: #ffffff33 3px 0px 10px;
@@ -194,8 +195,7 @@ header {
       font-size: 24px;
       transition: 0.4s ease-in-out all;
       &:hover {
-        color: #fdbce2;
-        text-shadow: 2px 3px 5px #9043c4;
+        text-shadow: 2px 2px 0px #EB862E;
       }
     }
 

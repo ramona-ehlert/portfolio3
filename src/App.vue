@@ -126,6 +126,29 @@ p {
     grid-template-columns: 1fr;
   }
 }
+
+.line-box {
+  width: fit-content;
+  // margin-left: 40px;
+  margin-bottom: 20px;
+  .line {
+    max-width: 80vw;
+    height: 2px;
+    width: 120%;
+    background-image: linear-gradient(to right, #EB862E, #FA58B6);
+    // margin-bottom: 40px;
+    margin: auto;
+  }
+  h2 {
+    width: fit-content;
+  }
+  .proj-title {
+  margin-top: 50px;
+  font-size: 28px;
+  font-weight: 600;
+  
+}
+}
 @keyframes example {
   0% {
     color: #9043c1;
