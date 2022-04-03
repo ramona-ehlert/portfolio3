@@ -35,7 +35,7 @@ export default {
   },
   computed: {
      storeProject() {
-      return this.$store.state.projects[4];
+      return this.$store.state.projects[3];
     },
   },
 }

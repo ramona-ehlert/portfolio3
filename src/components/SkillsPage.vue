@@ -144,6 +144,7 @@ p {
   color: #1a1a40;
   font-weight: 500;
   transition: ease-in-out 0.4s all;
+  cursor: pointer;
   // font-size: 20px;
 }
 

@@ -6,9 +6,6 @@
     <div id="about-code" class="aboutDiv active fadeIn" >
       <about-code></about-code>
     </div>
-    <div id="about-school" class="aboutDiv" >
-      <about-school></about-school>
-    </div>
     <div id="about-pets" class="aboutDiv" >
       <about-pets></about-pets>
     </div>
@@ -22,7 +19,6 @@
 import AboutCode from "../components/AboutCode.vue";
 import AboutLeaf from '../components/AboutLeaf.vue';
 import AboutPets from "../components/AboutPets.vue";
-import AboutSchool from '../components/AboutSchool.vue';
 import AboutTop from "../components/AboutTop.vue";
 
 export default {
@@ -49,7 +45,6 @@ prev.classList.remove("fadeIn");
     AboutTop,
     AboutCode,
     AboutPets,
-    AboutSchool,
     AboutLeaf
   },
 };

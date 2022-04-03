@@ -17,7 +17,7 @@
         </svg>
         <div class="active-line"></div>
       </div>
-      <div class="abt-button" id="school" @click="sendView">
+      <!-- <div class="abt-button" id="school" @click="sendView">
         <svg
           viewBox="0 0 102 62"
           fill="none"
@@ -28,7 +28,7 @@
           />
         </svg>
         <div class="active-line"></div>
-      </div>
+      </div> -->
       <div class="abt-button" id="pets" @click="sendView">
         <svg viewBox="0 0 92 82" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -104,7 +104,7 @@ h1 {
 .about-nav {
   display: grid;
   justify-items: center;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   // height: 100vh;
   //     width: 80%;
   //     margin: 10%;
@@ -141,7 +141,6 @@ h1 {
     .activate {
       .active-line {
         width: 40px;
-        background: #fa58b6;
       }
     }
     .abt-button {
@@ -150,6 +149,21 @@ h1 {
       height: 30px;
       svg {
         width: 40px;
+      }
+    }
+  }
+  @media screen and (max-width: 360px) {
+    .activate {
+      .active-line {
+        width: 36px;
+      }
+    }
+    .abt-button {
+      margin: 40px 16px;
+      width: 36px;
+      height: 24px;
+      svg {
+        width: 36px;
       }
     }
   }

@@ -1,9 +1,8 @@
 <template>
   <div class="brickbtm" style="display:grid;place-content:center;">
-      BRIck
-      
+
+      <project-page></project-page>
     <project-page :project="storeProject"></project-page>
-    <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
     <div class="line-box">
       <p class="proj-title">Other Projects</p> 
       <div class="line"></div>

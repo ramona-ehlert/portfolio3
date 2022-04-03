@@ -8,43 +8,43 @@
         <p>// {{ project.date }}</p>
       </div>
     </div>
-    <div class="note">
+    <div class="note" v-if="project.links">
       <div>
         <img src="../assets/github.svg" alt="" />
       </div>
       <div v-if="project.links.length > 1">
-        <a :href="project.links[0]">Front End</a>
-        <a :href="project.links[1]">Back End</a>
+        <a :href="project.links[0]">Visit front end</a>
+        <a :href="project.links[1]">Visit back end</a>
       </div>
       <div v-if="project.links.length === 1">
         <a :href="project.links[0]">Go to Code</a>
-        <!-- <a :href="project.links[1]">Back End</a> -->
       </div>
     </div>
 
     <div class="main-mask lpurple-back"></div>
     <img class="project-image" :src="project.image" />
-
-    <div class="text-grid">
-      <div class="tech-stack">
-        <div class="layer1"></div>
-        <div class="layer2"></div>
-        <div class="layer3">
-          <div class="padding">
-            <div class="line-box">
-              <h2>Tech Stack</h2>
-              <div class="line"></div>
-            </div>
-            <div class="tech-skills">
-              <div v-for="object in project.stack" :key="object">
-                <h4>{{ object }}</h4>
-                <br />
-              </div>
+     <div class="text-grid">
+       <div class="tech-stack">
+      <!-- <div class="stack-container"> -->
+     <div class="layer1"></div>
+      <div class="layer2"></div>
+      <div class="layer3">
+        <div class="padding">
+          <div class="line-box">
+            <h2>Tech Stack</h2>
+            <div class="line"></div>
+          </div>
+          <!-- </div> -->
+          <div class="tech-skills">
+            <div v-for="object in project.stack" :key="object">
+              <h4>{{ object }}</h4>
+              <br />
             </div>
           </div>
         </div>
       </div>
-
+    </div>
+    
       <!-- <div class="long"></div> -->
       <div
         class="proj-desc"
@@ -194,28 +194,34 @@ body #projects {
 }
 .proj-desc {
   align-self: center;
-  height: 400px;
+  padding: 50px 0 10px;
   display: grid;
   align-content: center;
 }
 .note {
   position: absolute;
-  top: calc(50vh + 20px);
+  bottom: calc(50vh - 4px);
+  left: 0;
   display: grid;
+  border-top-right-radius: 12px;
+  z-index: 4;
+  background: #1a1a40;
+  padding: 8px 28px;
   place-content: center;
-  grid-template-columns: 40px calc(100% - 40px);
+  grid-template-columns: 48px calc(100% - 48px);
   div {
-    display: grid;
-    place-content: center; 
-    grid-template-columns: 1fr 1fr;
-     }
+   display: grid;
+   place-content: center;
+  }
   a {
-    padding: 0px 0px 0px 16px;
-     color: #fa58b6;
-     font-size: 18px;
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 0px 0px 16px;
+    color: #fff;
+    font-size: 18px;
   }
   img {
-    height: 30px;
+    height: 40px;
   }
 }
 .project-title {
@@ -223,7 +229,7 @@ body #projects {
   height: fit-content;
   color: #fff;
   position: absolute;
-  top: 120px;
+  top: 60px;
   left: 0px;
   display: grid;
   align-content: center;
@@ -231,7 +237,7 @@ body #projects {
   z-index: 3;
   font-size: 18px;
   font-weight: 900;
-  padding: 10px 20px;
+  padding: 6px 12px;
   border-radius: 15px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -265,7 +271,7 @@ body #projects {
     font-size: 20px;
   }
   @media screen and (min-width: 1200px) {
-    font-size: 24px;
+    // font-px;
     padding: 20px 30px 20px 80px;
   }
 }
@@ -399,18 +405,19 @@ body #projects {
   // top: calc(50vh + 10px);
 }
 .tech-stack {
-  top: calc(50vh + 50px);
+  // top: calc(50vh + 50px);
   right: 0px;
   left: 0px;
-  position: absolute;
+  position: relative;
   border-radius: 18px;
   max-width: 80%;
   margin: auto;
   z-index: 4;
-  @media screen and (min-width: 550px) {
+  @media screen and (min-width: 726px) {
     top: calc(50vh - 140px);
     right: 60px;
     left: auto;
+    position: absolute;
   }
   @media screen and (min-width: 1100px) {
     right: 80px;
@@ -426,7 +433,10 @@ body #projects {
     right: 480px;
   }
   text-align: left;
-
+.stack-container {
+ position: relative;
+ height: 100%;
+}
   .line {
     height: 2px;
     width: 170px;
@@ -446,6 +456,12 @@ body #projects {
   place-content: center;
   text-align: left;
   grid-template-columns: 1fr;
+  @media screen and (max-width: 620px) {
+    @media screen and (min-width: 550px){
+      padding-top: 40px;
+    }
+    
+  }
   > div {
     // margin-top: 40px;
     margin: 20px 10px;
@@ -514,7 +530,7 @@ body #projects {
     /* margin: auto; */
     z-index: 4;
     bottom: 30px;
-    left: -20px;
+    left: 0px;
     width: fit-content;
   }
 }

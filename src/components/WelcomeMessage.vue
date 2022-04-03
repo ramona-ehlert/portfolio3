@@ -255,7 +255,7 @@ a {
 .blobby {
   height: 240px;
   width: 60%;
-  top: calc(100vh + 0px);
+  top: calc(100vh + 100px);
   left: 20%;
   z-index: 0;
   margin: auto;
@@ -271,6 +271,9 @@ a {
   }
   @media screen and (min-width: 1000px) {
     height: 280px;
+  }
+  @media screen and (max-width: 600px) {
+    top: 100vh
   }
 }
 .blobMove {
@@ -320,24 +323,30 @@ a {
     background-color: #9043c1;
   }
 }
-
 .bottom-down {
-  transition: 0.5s;
-  animation-name: updown;
-  animation-duration: 4s;
-  animation-iteration-count: infinite;
-  margin-top: 12px;
-  .svg {
-    svg {
-      height: 20px;
-      rect {
-        animation-name: example;
-        animation-duration: 12s;
-        animation-iteration-count: infinite;
+  display: none;
+}
+@media screen and (min-width: 500px) {
+  .bottom-down {
+    display: block;
+    transition: 0.5s;
+    animation-name: updown;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    margin-top: 12px;
+    .svg {
+      svg {
+        height: 20px;
+        rect {
+          animation-name: example;
+          animation-duration: 12s;
+          animation-iteration-count: infinite;
+        }
       }
     }
   }
 }
+
 @keyframes updown {
   0% {
     transform: translateY(-5px);

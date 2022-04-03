@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <article>
     <h2>My coding buddies</h2>
     <div class="quote">
       <p>
@@ -32,7 +32,7 @@
           <img src="../assets/duck.png" alt="A cat smiling" />
           <!-- <div class="mask"> -->
           <p>
-            Duck; the littlest house tiger. When I saw Duck at the shelter — one
+            Duck; the house tiger. When I saw Duck at the shelter — one
             ear, HUGE eyes, and a coat that had never seen a brush — I knew I
             had to bring her home. She spent the entire first night stretching
             her legs — sprinting around, meowing with joy at the top of her
@@ -40,19 +40,18 @@
           </p>
           <!-- </div> -->
         </div>
-        <br />
         <div class="pets" id="pets3">
           <img src="../assets/zoya.jpg" alt="" />
           <p>
             Zoya; the newest member of the family. She's a high energy
             menace, except when it’s time to code. She will sit and follow my
-            mouse as I type new lines of code, and has become my web dev sidekick.
+            cursor as I type new lines of code, and has become my web dev sidekick.
           </p>
 
         </div>
       </div>
     </div>
-  </div>
+  </article>
 </template>
 
 <script>
@@ -60,6 +59,10 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
+ article {
+   padding-bottom: 60px;
+ }
+#about
 .content-grid {
   display: grid;
   place-content: center;
@@ -96,14 +99,16 @@ export default {};
 }
 #pets-code {
   height: fit-content;
-  @media screen and (min-width: 860px) {
+
     
-  }
-    margin-top: 40px;
 }
 .pets {
   position: relative;
-  margin: 10px 20px;
+  margin: 10px 0px 0px;
+
+  @media screen and (min-width: 860px) {
+    margin: 40px 20px;
+  }
   img {
     width: 100%;
     //  position: absolute;
@@ -117,6 +122,9 @@ export default {};
     width: 100px;
     @media screen and (min-width: 550px) {
       font-size: 14px;
+    }
+    @media screen and (max-width: 400px) {
+      font-size: 10px;
     }
   }
 }
@@ -157,6 +165,10 @@ export default {};
     top: 0px;
     width: 80%;
     border-bottom-right-radius: 8px;
+    @media screen and (max-width: 420px) {
+      border-bottom-right-radius: 0px;
+      width: calc(100% - 20px);
+    }
   }
 }
 </style>

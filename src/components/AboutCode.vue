@@ -4,19 +4,19 @@
       <div class="center">
         <h3>Why do I code?</h3>
 
-       
-       
-        <p >
+        <p>
           Building my career in this exciting and fast paced field has brought
           forth many interesting challenges that I have loved finding solutions
           to. I have come to learn that very little is impossible when you are
           passionate about the work you do.
         </p>
-         <p class="med">
-          As a second generation web dev, technology has always been a part of
-          my life. I have always had a love for digital creation and an ambition to do something great.
+        <p class="med">
+          As a second generation web dev, technology and my love of digital
+          creation has been a part of my life as long as can remember. My
+          diploma in full stack developnment from Innotech College launched me
+          into the career of my dreams.
         </p>
-         <p class="long">
+        <p class="long">
           I love front end development because it is the perfect mix of
           creativity and logical problem solving.
         </p>
@@ -39,8 +39,8 @@ export default {
   methods: {
     name() {},
   },
-  mounted () {
-    if(window.location.href.includes("skills-page") === true){
+  mounted() {
+    if (window.location.href.includes("skills-page") === true) {
       document.getElementById("skills-page").scrollIntoView();
     }
   },
@@ -56,8 +56,8 @@ p {
   margin: 20px 16px;
 }
 .center {
-    display: grid;
-    place-content: center;
+  display: grid;
+  place-content: center;
 }
 img {
   justify-self: center;
@@ -78,32 +78,27 @@ img {
   p {
     font-size: 20px;
   }
-
 }
 @media screen and (min-width: 540px) {
-    
-
-@media screen and (max-width: 690px) {
-.long {
-    width: 160%;
-}
-.med {
-    margin-top:  30px;
-    margin-bottom:  30px;
-}
-}
-@media screen and (max-width: 610px) {
-.long {
-    width: 160%;
-}
-.med {
-
-
-    width: 140%;
-}
-img {
-    align-self: start;
-}
-}
+  @media screen and (max-width: 690px) {
+    .long {
+      width: 160%;
+    }
+    .med {
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+  }
+  @media screen and (max-width: 610px) {
+    .long {
+      width: 160%;
+    }
+    .med {
+      width: 140%;
+    }
+    img {
+      align-self: start;
+    }
+  }
 }
 </style>
