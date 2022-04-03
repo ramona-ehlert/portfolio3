@@ -3,7 +3,7 @@
         <a href="https://github.com/jacksonoviatt" target="_blank">
           <img src="../assets/github.svg" alt="the github logo" />
         </a>
-        <a href="https://drive.google.com/file/d/1iql0Rx7xb5yYa4WR1gX3baXQz7Z00OsC/view?usp=sharing" target="_blank">
+        <a href="https://drive.google.com/file/d/1AAa5sa4SvpK-PpUPVNB_1axpNgun01wg/view?usp=sharing" target="_blank">
           <img src="../assets/resume.svg" alt="a resume logo" />
         </a>
         <a href="mailto:ramonaoviatt@gmail.com" target="_blank">
@@ -30,7 +30,7 @@
  .socials {
      margin-top: 20px;
      display: grid;
-     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+     grid-template-columns: 1fr 1fr 1fr 1fr;
      justify-items: right;
      width: 280px;
       img {
