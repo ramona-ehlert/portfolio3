@@ -101,6 +101,11 @@
 <script>
 export default {
   mounted() {
+    document.getElementById("navBox").style.left = "-100vw";
+    document.getElementById("nav-mask").style.opacity = 0;
+    setTimeout(function () {
+      document.getElementById("nav-mask").style.display = "none";
+    }, 400);
     window.addEventListener("scroll", this.hideBounce);
     setTimeout(function () {
       let divs = document.querySelectorAll("div");
@@ -111,11 +116,12 @@ export default {
   },
   methods: {
     hideBounce() {
-      document.querySelector(".bottom-down").style =
-        "opacity:0;animationDuration:0s;";
+      if (document.querySelector(".bottom-down")) {
+        document.querySelector(".bottom-down").style =
+          "opacity:0;animationDuration:0s;";
+      }
     },
     goDown() {
-      console.log(window.innerHeight);
       window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
       this.hideBounce();
     },
@@ -255,7 +261,7 @@ a {
 .blobby {
   height: 240px;
   width: 60%;
-  top: calc(100vh + 100px);
+  top: 100vh;
   left: 20%;
   z-index: 0;
   margin: auto;
@@ -273,7 +279,7 @@ a {
     height: 280px;
   }
   @media screen and (max-width: 600px) {
-    top: 100vh
+    top: 100vh;
   }
 }
 .blobMove {

@@ -39,21 +39,17 @@ export default {
       navigator.clipboard.writeText("ramonaoviatt@gmail.com");
       document.getElementById("toolTip").classList.add("copied");
       setTimeout(function () {
-        console.log("hello");
         document.getElementById("toolTip").style.opacity = "1";
       }, 100);
       setTimeout(function () {
-          console.log("hello");
           document.getElementById("toolTip").style.opacity = "0";
         }, 2000);
       setTimeout(function () {
-        console.log("hello");
         document.getElementById("toolTip").classList.remove("copied");
         
       }, 2400);
     },
   },
-  // MAKE FUNCTIONALITY AND A TOOL TIP FOR THE EMAIL COPY BUTTON
 };
 </script>
 
@@ -77,7 +73,6 @@ export default {
   margin-left: 24px;
   
   background: #fff;
-  //  padding-top: 10px;
 }
 }
 }

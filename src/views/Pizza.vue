@@ -18,8 +18,7 @@ export default {
     name: 'Pizza',
   
    components: {
-//     ProjectSection,
-//     SkillsPage ,
+
     ProjectSection,
     ProjectPage 
   },
@@ -28,10 +27,6 @@ export default {
       return this.$store.state.projects[3];
     },
   },
-//   components: {
-//     ProjectSection,
-//     SkillsPage ,
-//     WelcomeMessage
-//   }
+
 }
 </script>

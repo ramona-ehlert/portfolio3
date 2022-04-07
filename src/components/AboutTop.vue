@@ -56,23 +56,24 @@
 <script>
 export default {
   mounted() {
-    console.log(sessionStorage.getItem("about"));
+    document.getElementById("navBox").style.left = "-100vw";
+    document.getElementById("nav-mask").style.opacity = 0;
+    setTimeout(function () {
+      document.getElementById("nav-mask").style.display = "none";
+    }, 400);
+    setTimeout(this.faFaBars, 400);
     if (sessionStorage.getItem("about") === null) {
       sessionStorage.setItem("about", "code");
-      console.log(sessionStorage.getItem("about"));
       document.getElementById("code").classList.add("activate");
     } else if (window.location.href.includes("skills") === true) {
       this.$emit("aboutView", "code");
       document.getElementById("code").classList.add("activate");
       window.scrollTo({ top: window.innerHeight - 80, behavior: "smooth" });
     } else {
-      console.log("this is what happens");
       this.$emit("aboutView", sessionStorage.getItem("about"));
-
       document
         .getElementById(sessionStorage.getItem("about"))
         .classList.add("activate");
-      // el.classList.add("activate");
     }
   },
   methods: {
@@ -81,8 +82,6 @@ export default {
         document.querySelector(".activate").classList.remove("activate");
       }
       let el = e.currentTarget;
-      console.log(el.id);
-      console.log(sessionStorage);
       sessionStorage.setItem("about", el.id);
       this.$emit("aboutView", el.id);
       el.classList.add("activate");
@@ -105,10 +104,6 @@ h1 {
   display: grid;
   justify-items: center;
   grid-template-columns: 1fr 1fr 1fr;
-  // height: 100vh;
-  //     width: 80%;
-  //     margin: 10%;
-  //     padding: 100px;
   .abt-button {
     margin: 40px 20px;
     width: 60px;
@@ -168,5 +163,4 @@ h1 {
     }
   }
 }
-// }
 </style>

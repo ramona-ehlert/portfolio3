@@ -30,16 +30,8 @@
 
 <script>
 export default {
-  mounted() {
-    console.log(window.location.href);
-    
-
-  },
-  
   computed: {
-    
     storeProjects() {
-      console.log(this.$store.state.projects);
       let projectstore = this.$store.state.projects;
       let projects = [];
       for (let i = 0; i < projectstore.length; i++) {
@@ -90,7 +82,7 @@ export default {
   h3 {
     color: #fff;
     position: relative;
-    padding: 20px;
+    padding: 20px 0 6px;;
     transition: 0.3s all ease-in;
     font-size: 20px;
   }

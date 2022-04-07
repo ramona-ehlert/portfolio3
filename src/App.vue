@@ -5,42 +5,21 @@
     </div>
     <router-view></router-view>
     <page-footer></page-footer>
-    <!-- <router-view/> -->
   </div>
 </template>
 <script>
 import HeaderContainer from "./components/HeaderContainer.vue";
 import PageFooter from "./components/PageFooter.vue";
-// import SkillsPage from './components/SkillsPage.vue';
 
 export default {
   components: { HeaderContainer, PageFooter },
   setup() {},
-  data() {
-    return {
-      isMenuOpen: false,
-    };
-  },
-  
-  methods: {
-    openMenu() {
-      document.getElementById("mobileMenu").style.top = "0px";
-      this.isMenuOpen = true;
-    },
-    faFaBars() {
-      this.isMenuOpen = false;
-    },
-    closeMenu() {
-      document.getElementById("mobileMenu").style.top = "-300px";
-      setTimeout(this.faFaBars, 400);
-    },
-  },
+ 
 };
 </script>
 
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-// @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -89,6 +68,7 @@ h4 {
 p {
   color: #fff;
   font-weight: 400;
+  line-height: 1.36rem;
 }
 .light-purple {
   color: #9043c1;
@@ -112,9 +92,6 @@ p {
 .active {
   display: block;
 }
-// .light-purple-b {
-//
-// }
 .content-grid {
   display: grid;
   place-content: center;
@@ -129,14 +106,12 @@ p {
 
 .line-box {
   width: fit-content;
-  // margin-left: 40px;
   margin-bottom: 20px;
   .line {
     max-width: 80vw;
     height: 2px;
     width: 120%;
     background-image: linear-gradient(to right, #EB862E, #FA58B6);
-    // margin-bottom: 40px;
     margin: auto;
   }
   h2 {
@@ -146,7 +121,7 @@ p {
   margin-top: 50px;
   font-size: 28px;
   font-weight: 600;
-  
+  line-height: 1em;
 }
 }
 @keyframes example {

@@ -35,25 +35,25 @@
       </section>
       <nav>
         <div class="nav-tab">
-          <a @click="closeMenu()" href="/#">Welcome</a>
+          <p @click="goToRouter('home')" to="/">Welcome</p>
         </div>
         <div class="nav-tab">
-          <a href="/#project-section" @click="closeMenu()">Projects</a>
+          <p @click="goToRouter('/#project-section')">Projects</p>
           <div v-for="item in storeProjects" :key="item.id">
-            <a :href="item.page" class="small-link"> {{ item.name }}</a>
+            <div @click="goToRouter(item.page)" class="small-link">
+              {{ item.name }}
+            </div>
           </div>
         </div>
         <div class="nav-tab">
-          <a
-            href="/about#skills-page"
-            id="skills-link"
-            @click="closeMenu(), goToSkills()"
-            >Coding Skills</a
-          >
+          <p @click="goToRouter('/about#skills-page')">
+            Coding Skills
+          </p>
         </div>
-
         <div class="nav-tab">
-          <a href="/about" @click="closeMenu()">About Me</a>
+          <p @click="goToRouter('/about')">
+           About
+          </p>
         </div>
 
         <div class="logoImg"></div>
@@ -67,12 +67,61 @@
 import SocialGrid from "./SocialGrid.vue";
 export default {
   components: { SocialGrid },
-  data() {
-    return {
-      isMenuOpen: false,
-    };
-  },
+
   methods: {
+    goToRouter(route) {
+      if (window.location.pathname !== route) {
+        if (route === "home") {
+          this.closeMenu();
+          this.$router.push("/");
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+         
+        } else if ( route.includes("skills") && window.location.href.includes("about") ) {
+          if (sessionStorage.getItem("about") !== "code") {
+            sessionStorage.setItem("about", "code");
+            document.getElementById("code").classList.add("activate");
+            if (document.querySelector(".active")) {
+              let prev = document.querySelector(".active");
+              prev.classList.remove("fadeIn");
+              prev.classList.remove("active");
+            }
+            let el = document.getElementById("about-code");
+            el.style.display = "block";
+            el.classList.add("active");
+            setTimeout(function () {
+              el.classList.add("fadeIn");
+            }, 100);
+          }
+          this.closeMenu();
+          window.scrollTo({
+            top: document.querySelector(".mySkills").getBoundingClientRect()
+              .top,
+            behavior: "smooth",
+          });
+        } else if (
+          document.getElementById("welcome-message") &&
+          route === "/#project-section"
+        ) {
+          window.scrollTo({
+            top: window.innerHeight,
+            behavior: "smooth",
+          });
+          this.closeMenu();
+        } else {
+          
+            this.$router.push(route);
+        }
+        
+      }else{this.closeMenu();}
+    },
+    about() {
+      if (window.location.href.includes("about") === true) {
+        document.body.scrollTop = 0;
+      }
+    },
     goToSkills() {
       if (
         window.location.href.includes("about") === true &&
@@ -82,30 +131,31 @@ export default {
       }
     },
     openMenu() {
-      console.log("hello");
       document.getElementById("navBox").style.left = "0px";
       document.getElementById("nav-mask").style.display = "block";
       setTimeout(function () {
         document.getElementById("nav-mask").style.opacity = 1;
       }, 100);
-
-      this.isMenuOpen = true;
     },
-    faFaBars() {
-      this.isMenuOpen = false;
-    },
+   
     closeMenu() {
       document.getElementById("navBox").style.left = "-100vw";
       document.getElementById("nav-mask").style.opacity = 0;
       setTimeout(function () {
         document.getElementById("nav-mask").style.display = "none";
       }, 400);
-      setTimeout(this.faFaBars, 400);
     },
   },
   computed: {
     storeProjects() {
       return this.$store.state.projects;
+    },
+    isAbout() {
+      if (window.location.href.includes("about") === true) {
+        return true;
+      } else {
+        return false;
+      }
     },
   },
 };
@@ -125,10 +175,7 @@ export default {
   place-content: center;
   box-shadow: -1px 1px 5px #00000044;
   cursor: pointer;
-  // border-radius: 8px;
-  // box-shadow: #ffffff33 3px 0px 10px;
   transition: 0.2s all ease-in;
-  // place-content: center;
   &:active {
     box-shadow: inset #ffffff33 0px 0px 4px;
   }
@@ -169,40 +216,31 @@ header {
   z-index: 11;
   width: 80%;
   transition: 0.6s ease-in-out all;
-  // #navBox {
-  // position: absolute;
   left: -100vw;
   @media screen and (min-width: 700px) {
     width: 60%;
   }
-  // }
   nav {
     display: grid;
     position: absolute;
     left: 10%;
     margin-top: 50px;
     text-align: left;
-    // @media screen and (min-width:550px) {
-    //     left: 50px;
-    // }
-    // @media screen and (min-width:800px) {
-    //     left: 80px;
-    // }
-    a {
+    p {
       color: #fff;
       text-decoration: none;
       font-weight: 600;
       font-size: 24px;
       transition: 0.4s ease-in-out all;
       &:hover {
-        text-shadow: 2px 2px 0px #EB862E;
+        text-shadow: 2px 2px 0px #eb862e;
       }
     }
 
     @media screen and (min-width: 1000px) {
       left: 15%;
       top: 5%;
-      a {
+      p {
         font-size: 32px;
       }
     }

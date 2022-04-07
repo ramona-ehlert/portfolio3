@@ -29,10 +29,8 @@ export default {
   methods: {
     clearColor() {
       let color = document.querySelectorAll(".colors");
-      console.log(color);
       const indexLength = color.length;
       for (let i = 0; i < indexLength; i++) {
-        console.log(color[i]);
         if (
           color[i].classList.value.includes("colors") === true &&
           color[i].classList.value.includes("mySkills") === false
